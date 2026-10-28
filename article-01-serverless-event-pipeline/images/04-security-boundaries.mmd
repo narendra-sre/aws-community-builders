@@ -1,0 +1,24 @@
+flowchart LR
+    subgraph Storage[Storage and event source]
+      S3[(S3 bucket\nBlock Public Access\nEncryption + versioning)]
+    end
+    subgraph Messaging[Messaging]
+      Q[SQS processing queue]
+      DLQ[SQS dead-letter queue]
+      POL[Queue resource policy\nAllow expected S3 source only]
+    end
+    subgraph Compute[Processing identity boundary]
+      L[Lambda function]
+      ROLE[IAM execution role\nPoll/delete queue messages\nWrite CloudWatch logs]
+    end
+    CW[CloudWatch Logs]
+    S3 -->|Object-created event| Q
+    Q --> L
+    Q -. Redrive on repeated failures .-> DLQ
+    POL -. Restricts publishers .-> Q
+    ROLE -. Grants minimum actions .-> L
+    L --> CW
+    classDef secure fill:#EDF4FF,stroke:#3467A8,color:#142B4C,stroke-width:1.5px;
+    classDef identity fill:#F3E8FF,stroke:#7E22CE,color:#3B0764,stroke-width:1.5px;
+    class S3,Q,DLQ,POL secure;
+    class L,ROLE identity;

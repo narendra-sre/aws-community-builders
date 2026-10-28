@@ -1,0 +1,16 @@
+digraph Architecture {
+  graph [rankdir=LR, bgcolor="white", pad="0.3", nodesep="0.6", ranksep="0.75", label="Figure 1. Serverless event-driven processing architecture", labelloc=t, fontsize=20, fontname="Arial"];
+  node [shape=box, style="rounded,filled", fontname="Arial", fontsize=12, margin="0.2,0.13", color="#2F6FDB", fillcolor="#E8F2FF", fontcolor="#12213A", penwidth=1.5];
+  edge [fontname="Arial", fontsize=10, color="#52647A", fontcolor="#27364B", penwidth=1.5, arrowsize=0.8];
+  User [label="User / Application", fillcolor="#F4F7FB", color="#64748B"];
+  S3 [label="Amazon S3\nObject storage", shape=cylinder];
+  SQS [label="Amazon SQS\nProcessing queue"];
+  Lambda [label="AWS Lambda\nMessage processor", fillcolor="#FFF0E6", color="#D97706", fontcolor="#41210A"];
+  CW [label="Amazon CloudWatch\nExecution logs", fillcolor="#E8F8F1", color="#16845B", fontcolor="#103D2B"];
+  DLQ [label="Amazon SQS\nDead-letter queue", fillcolor="#FFF0EF", color="#C2413B", fontcolor="#4A1212"];
+  User -> S3 [label="1. Upload object"];
+  S3 -> SQS [label="2. Object-created event"];
+  SQS -> Lambda [label="3. Lambda polls batch"];
+  Lambda -> CW [label="4. Logs"];
+  SQS -> DLQ [label="Repeated failures", style=dashed, color="#C2413B", fontcolor="#9F2824"];
+}

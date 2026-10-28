@@ -1,0 +1,16 @@
+sequenceDiagram
+    autonumber
+    actor User as User / Application
+    participant S3 as Amazon S3
+    participant SQS as Amazon SQS
+    participant Lambda as AWS Lambda
+    participant CW as CloudWatch Logs
+    User->>S3: Upload object
+    S3->>SQS: Publish object-created notification
+    Note over SQS: Message is buffered until consumed
+    Lambda->>SQS: Poll for a batch of messages
+    SQS-->>Lambda: Return message batch
+    Lambda->>Lambda: Validate and process each record
+    Lambda->>CW: Write execution logs
+    Lambda-->>SQS: Report batch result / failed item IDs
+    Note over SQS,Lambda: Successful messages are acknowledged; failed messages can be retried

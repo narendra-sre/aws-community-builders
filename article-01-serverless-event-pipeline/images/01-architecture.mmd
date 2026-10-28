@@ -1,0 +1,12 @@
+flowchart LR
+    U[User / Application] -->|1. Upload object| S3[(Amazon S3 bucket)]
+    S3 -->|2. Object-created event| Q[Amazon SQS processing queue]
+    Q -->|3. Poll batch| L[AWS Lambda processor]
+    L -->|4. Execution logs| CW[Amazon CloudWatch Logs]
+    Q -. Repeated processing failures .-> DLQ[Amazon SQS dead-letter queue]
+    classDef storage fill:#E8F2FF,stroke:#2F6FDB,color:#12213A,stroke-width:1.5px;
+    classDef compute fill:#FFF0E6,stroke:#D97706,color:#41210A,stroke-width:1.5px;
+    classDef observe fill:#E8F8F1,stroke:#16845B,color:#103D2B,stroke-width:1.5px;
+    class S3,Q,DLQ storage;
+    class L compute;
+    class CW observe;

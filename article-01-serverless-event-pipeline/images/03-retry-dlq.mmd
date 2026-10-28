@@ -1,0 +1,15 @@
+flowchart TD
+    A[Message available in processing queue] --> B[Lambda receives message]
+    B --> C{Processing succeeds?}
+    C -->|Yes| D[Message acknowledged and removed]
+    C -->|No| E[Message becomes available for retry]
+    E --> F{Receive count exceeds redrive limit?}
+    F -->|No| B
+    F -->|Yes| G[Move message to dead-letter queue]
+    G --> H[Alert and investigate failure]
+    H --> I[Fix root cause and validate replay plan]
+    I -. Controlled redrive when safe .-> A
+    classDef success fill:#E8F8F1,stroke:#16845B,color:#103D2B;
+    classDef failure fill:#FFF0EF,stroke:#C2413B,color:#4A1212;
+    class D success;
+    class E,G,H failure;

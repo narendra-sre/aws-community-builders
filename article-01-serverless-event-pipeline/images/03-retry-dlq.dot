@@ -1,0 +1,21 @@
+digraph RetryDLQ {
+  graph [rankdir=TB, bgcolor="white", pad="0.3", nodesep="0.35", ranksep="0.48", label="Figure 3. Retry and dead-letter queue flow", labelloc=t, fontsize=20, fontname="Arial"];
+  node [shape=box, style="rounded,filled", fontname="Arial", fontsize=11, margin="0.18,0.12", color="#2F6FDB", fillcolor="#E8F2FF", fontcolor="#12213A", penwidth=1.4];
+  edge [fontname="Arial", fontsize=10, color="#52647A", fontcolor="#27364B", penwidth=1.4, arrowsize=0.8];
+  Q [label="Message available in processing queue"];
+  L [label="Lambda receives message", fillcolor="#FFF0E6", color="#D97706", fontcolor="#41210A"];
+  C [label="Processing succeeds?", shape=diamond, fillcolor="#FFF9E6", color="#CA8A04", fontcolor="#713F12"];
+  OK [label="Acknowledge and remove message", fillcolor="#E8F8F1", color="#16845B", fontcolor="#103D2B"];
+  R [label="Message becomes eligible for retry", fillcolor="#FFF0EF", color="#C2413B", fontcolor="#4A1212"];
+  M [label="Receive count over redrive limit?", shape=diamond, fillcolor="#FFF9E6", color="#CA8A04", fontcolor="#713F12"];
+  DLQ [label="Move message to dead-letter queue", fillcolor="#FFF0EF", color="#C2413B", fontcolor="#4A1212"];
+  I [label="Investigate, fix root cause, plan safe replay", fillcolor="#F3E8FF", color="#7E22CE", fontcolor="#3B0764"];
+  Q -> L -> C;
+  C -> OK [label="Yes"];
+  C -> R [label="No"];
+  R -> M;
+  M -> L [label="No - retry"];
+  M -> DLQ [label="Yes"];
+  DLQ -> I;
+  I -> Q [label="Controlled redrive when safe", style=dashed];
+}
