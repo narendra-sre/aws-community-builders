@@ -1,6 +1,6 @@
 # Article 1 — Serverless Event-Driven Processing Pipeline
 
-This project accompanies the article [Building a Serverless Event-Driven Processing Pipeline with Amazon S3, Amazon SQS, and AWS Lambda](ARTICLE.md).
+This project accompanies the article [Building a Serverless Event-Driven Processing Pipeline with Amazon S3, Amazon SQS, and AWS Lambda](https://builder.aws.com/content/3LHlpNFoF3M5IgwTWdfkn4uKm4L/building-a-serverless-event-driven-processing-pipeline-with-amazon-s3-amazon-sqs-and-aws-lambda).
 
 ## Contents
 
