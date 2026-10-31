@@ -1,0 +1,30 @@
+name: AWS OIDC identity demo
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  verify-aws-identity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials through OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ap-south-2
+          role-session-name: GitHubActionsOIDCDemo
+
+      - name: Verify assumed identity
+        run: aws sts get-caller-identity
+
+      - name: List only the approved S3 prefix
+        env:
+          DEMO_BUCKET: ${{ vars.DEMO_BUCKET }}
+        run: aws s3 ls "s3://${DEMO_BUCKET}/reports/"
