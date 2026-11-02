@@ -1,6 +1,6 @@
 # Secure AWS Automation with GitHub Actions and OpenID Connect (OIDC)
 
-**Level:** Intermediate  
+**Level:** Intermediate
 **Focus:** AWS IAM, temporary credentials, OpenID Connect, GitHub Actions, least privilege.
 
 > **Implementation status:** This is a reference implementation. It has not been deployed or validated in a live AWS account. Validate the provider, trust policy, permissions, and workflow in a dedicated test environment before relying on it.
@@ -27,19 +27,19 @@ Secret storage is important for credentials that must exist, but it does not cha
 
 ## 2. The building blocks
 
-| Component | Responsibility |
-|---|---|
-| GitHub Actions | Runs the automation workflow. |
-| GitHub OIDC issuer | Issues a signed identity token for the workflow context. |
-| AWS IAM OIDC provider | Establishes trust in the token issuer and audience. |
-| IAM role trust policy | Defines which federated identities may assume the role. |
-| AWS STS | Validates the token and issues temporary credentials. |
-| IAM permissions policy | Defines what the assumed role can do in AWS. |
+| Component              | Responsibility                                           |
+| ---------------------- | -------------------------------------------------------- |
+| GitHub Actions         | Runs the automation workflow.                            |
+| GitHub OIDC issuer     | Issues a signed identity token for the workflow context. |
+| AWS IAM OIDC provider  | Establishes trust in the token issuer and audience.      |
+| IAM role trust policy  | Defines which federated identities may assume the role.  |
+| AWS STS                | Validates the token and issues temporary credentials.    |
+| IAM permissions policy | Defines what the assumed role can do in AWS.             |
 
 Two policy types must be understood separately:
 
-- **Trust policy:** Who can assume this role?
-- **Permissions policy:** What can the role do after it is assumed?
+* **Trust policy:** Who can assume this role?
+* **Permissions policy:** What can the role do after it is assumed?
 
 A restrictive trust policy does not compensate for an overly broad permissions policy, and vice versa.
 
@@ -63,35 +63,162 @@ A restrictive trust policy does not compensate for an overly broad permissions p
 
 An IAM OIDC identity provider must exist in the AWS account before a role can trust it.
 
-- Provider URL: `https://token.actions.githubusercontent.com`
-- Client ID (audience): `sts.amazonaws.com`
+* Provider URL: `https://token.actions.githubusercontent.com`
+* Client ID (audience): `sts.amazonaws.com`
 
 Create the provider in IAM using the AWS Console or your approved infrastructure-as-code process. Confirm current AWS and GitHub documentation for provider setup and certificate/thumbprint handling rather than copying an old thumbprint from an example.
 
 The Terraform example in this project accepts the ARN of an already-created GitHub OIDC provider as an input. This keeps provider lifecycle management separate from the example role. Do not create duplicate providers for the same issuer in one account; reuse an existing provider where appropriate.
 
-## 5. Restrict the role trust policy
+## 5. Understand GitHub's OIDC subject (`sub`) claim
 
-For a workflow running from the `main` branch of one repository, the expected subject claim has this form:
+The `sub` (subject) claim identifies the GitHub repository and workflow context that is requesting access. AWS evaluates this claim against the IAM role trust policy.
 
-`repo:OWNER/REPOSITORY:ref:refs/heads/main`
+Historically, a workflow running from the `main` branch used a name-based subject such as:
 
-The Terraform example builds the subject from input variables and requires an exact match. It also checks that the audience is `sts.amazonaws.com`.
+```text
+repo:OWNER/REPOSITORY:ref:refs/heads/main
+```
 
-The trust policy should allow the configured GitHub OIDC provider as the federated principal, the `sts:AssumeRoleWithWebIdentity` action, the expected audience, and the exact repository-and-branch subject.
+GitHub has introduced **immutable OIDC subject claims**. For repositories using this format, the subject includes the owner and repository IDs:
 
-Avoid broad conditions such as `repo:OWNER/*` unless every repository in that scope is intentionally trusted. A wildcard can allow an unintended repository to assume the role.
+```text
+repo:OWNER@OWNER_ID/REPOSITORY@REPOSITORY_ID:ref:refs/heads/main
+```
+
+The IDs help prevent identity ambiguity if a repository or organization is renamed, transferred, deleted, or recreated under a previously used name.
+
+### Which format does a repository use?
+
+GitHub's rollout is date- and repository-state-dependent:
+
+* Repositories created before July 15, 2026 generally retain the legacy format unless they opt in to immutable subject claims.
+* Repositories created after July 15, 2026 use the immutable format by default.
+* Repositories renamed or transferred after that date also move to the immutable format.
+* An existing repository can use immutable claims if it explicitly opts in.
+
+Do not infer the format from the repository name or workflow YAML. Inspect the actual token's `sub` claim and configure AWS IAM to match it exactly.
+
+For example, these are different strings:
+
+```text
+repo:octo-org/octo-repo:ref:refs/heads/main
+repo:octo-org@123456/octo-repo@456789:ref:refs/heads/main
+```
+
+An IAM `StringEquals` condition will not treat them as equivalent. If the trust policy expects the legacy value while GitHub issues the immutable value, AWS STS will reject the role assumption.
+
+### 5.1 Inspect the actual subject claim
+
+Temporarily add this diagnostic step to a GitHub Actions job that has `id-token: write`. The runner provides `ACTIONS_ID_TOKEN_REQUEST_URL` and `ACTIONS_ID_TOKEN_REQUEST_TOKEN`; the script reads them directly rather than trying to expose them as workflow outputs.
+
+```yaml
+- name: Inspect GitHub OIDC subject (temporary diagnostic)
+  shell: bash
+  run: |
+    set -euo pipefail
+
+    TOKEN_RESPONSE=$(curl --fail --silent --show-error --get \
+      --data-urlencode "audience=sts.amazonaws.com" \
+      -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+      "$ACTIONS_ID_TOKEN_REQUEST_URL")
+
+    TOKEN=$(printf '%s' "$TOKEN_RESPONSE" | jq -r '.value')
+
+    if [ -z "$TOKEN" ] || [ "$TOKEN" = "null" ]; then
+      echo "Unable to retrieve OIDC token"
+      exit 1
+    fi
+
+    python3 - "$TOKEN" <<'PY'
+    import base64
+    import json
+    import sys
+
+    token = sys.argv[1]
+    payload = token.split(".")[1]
+    payload += "=" * (-len(payload) % 4)
+    claims = json.loads(base64.urlsafe_b64decode(payload))
+
+    print("OIDC subject:", claims.get("sub"))
+    print("OIDC audience:", claims.get("aud"))
+    PY
+
+    unset TOKEN TOKEN_RESPONSE
+```
+
+This step requests a token for the AWS STS audience, decodes its payload locally, and prints only the `sub` and `aud` claims. It does not print the complete JWT.
+
+A JWT payload is encoded, not encrypted. Treat the token as a temporary credential: never print it, upload it as an artifact, or share it. Remove the diagnostic step after verifying the claim. This diagnostic is for inspection only; it does not configure AWS credentials or prove that the IAM role can be assumed.
+
+### 5.2 Configure an exact trust policy
+
+Use the trust policy that matches the actual subject observed in the previous step.
+
+**Example A — legacy subject format:**
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::123456789012:oidc-provider/token.actions.githubusercontent.com"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
+          "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/main"
+        }
+      }
+    }
+  ]
+}
+```
+
+**Example B — immutable subject format:**
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::123456789012:oidc-provider/token.actions.githubusercontent.com"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
+          "token.actions.githubusercontent.com:sub": "repo:octo-org@123456/octo-repo@456789:ref:refs/heads/main"
+        }
+      }
+    }
+  ]
+}
+```
+
+All account, owner, repository, and ID values above are illustrative. Replace them with the actual values from your environment. These examples are alternatives, not policies that should automatically be combined.
+
+The Terraform example in this repository accepts the complete expected subject as an input variable. This makes the trust boundary explicit and avoids assuming that every repository uses the same subject format.
 
 ### Branches and GitHub Environments
 
-The subject format changes when a workflow uses a GitHub Environment. The subject can identify the environment instead of the branch. If you add an environment such as `production`, update the trust policy to match the exact subject format and configure environment protection rules. Do not copy a branch-based trust policy unchanged into an environment-based workflow.
+The subject also depends on the workflow context. A job using a GitHub Environment may have an environment-based subject rather than a branch-based subject. For repositories using immutable claims, the owner and repository IDs are included in that subject too.
+
+Inspect the actual `sub` claim for the workflow you intend to trust, then use that exact value in IAM. Configure environment protection rules, such as required reviewers and deployment restrictions, when using a protected environment.
+
+Avoid broad conditions such as `repo:OWNER/*` unless every repository in that scope is intentionally trusted. A wildcard can allow an unintended repository to assume the role.
 
 ## 6. Grant only the permissions the workflow needs
 
 The example role has a deliberately small read-only S3 policy for one bucket and the `reports/` prefix:
 
-- `s3:ListBucket` on the specific bucket, constrained by the `s3:prefix` condition.
-- `s3:GetObject` on objects under `reports/` in that bucket.
+* `s3:ListBucket` on the specific bucket, constrained by the `s3:prefix` condition.
+* `s3:GetObject` on objects under `reports/` in that bucket.
 
 It does not grant bucket creation, object writes, deletion, IAM administration, or access to every S3 bucket.
 
@@ -140,14 +267,14 @@ A compromised workflow running in a trusted repository and branch may still obta
 
 ## 9. Troubleshooting
 
-| Symptom | Possible cause | What to check |
-|---|---|---|
-| `Not authorized to perform sts:AssumeRoleWithWebIdentity` | Trust policy does not match token claims | Provider ARN, audience, exact `sub` condition. |
-| `No OpenIDConnect provider found` | Provider missing or ARN/issuer incorrect | Confirm provider exists in the same AWS account. |
-| Audience mismatch | Trust policy expects another audience | Confirm `sts.amazonaws.com` is configured. |
-| Subject mismatch | Branch, repository, or environment subject differs | Check workflow context and exact condition. |
-| S3 `AccessDenied` | Role assumed, but permissions are insufficient | Check attached policy, bucket policy, prefix, and organization controls. |
-| Workflow cannot request OIDC token | `id-token: write` missing or overridden | Check workflow/job permissions. |
+| Symptom                                                   | Possible cause                                                      | What to check                                                                                                          |
+| --------------------------------------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `Not authorized to perform sts:AssumeRoleWithWebIdentity` | Trust policy does not match token claims                            | Provider ARN, audience, exact `sub` condition.                                                                         |
+| `No OpenIDConnect provider found`                         | Provider missing or ARN/issuer incorrect                            | Confirm provider exists in the same AWS account.                                                                       |
+| Audience mismatch                                         | Trust policy expects another audience                               | Confirm `sts.amazonaws.com` is configured.                                                                             |
+| Subject mismatch                                          | Trust policy expects a different subject format or workflow context | Inspect the token's actual `sub` claim; check legacy versus immutable format, branch, repository IDs, and environment. |
+| S3 `AccessDenied`                                         | Role assumed, but permissions are insufficient                      | Check attached policy, bucket policy, prefix, and organization controls.                                               |
+| Workflow cannot request OIDC token                        | `id-token: write` missing or overridden                             | Check workflow/job permissions.                                                                                        |
 
 Run `aws sts get-caller-identity` after configuring credentials. If it succeeds, role assumption worked. An access-denied error on a later S3 command is a separate permissions issue.
 
@@ -160,15 +287,17 @@ OIDC federation does not require a continuously running compute service. However
 This project has not yet been deployed or tested. In a dedicated non-production account:
 
 1. Confirm the GitHub OIDC provider exists in the intended AWS account.
-2. Review the Terraform plan and confirm the exact repository/branch subject.
-3. Apply only after reviewing the plan and permissions.
-4. Configure `AWS_ROLE_ARN` and `DEMO_BUCKET` as GitHub repository variables.
-5. Trigger the workflow from the trusted `main` branch.
-6. Confirm `aws sts get-caller-identity` reports the expected assumed role.
-7. Confirm listing the allowed `reports/` prefix succeeds.
-8. Confirm reading an object outside the allowed prefix is denied.
-9. Confirm an untrusted branch or repository cannot assume the role.
-10. Review CloudTrail events and remove test resources when finished.
+2. Inspect the actual GitHub OIDC `sub` claim for the workflow.
+3. Identify whether the repository uses legacy or immutable subject claims.
+4. Review the Terraform plan and confirm the exact subject matches the observed claim.
+5. Apply only after reviewing the plan and permissions.
+6. Configure `AWS_ROLE_ARN` and `DEMO_BUCKET` as GitHub repository variables.
+7. Trigger the workflow from the trusted `main` branch or intended protected environment.
+8. Confirm `aws sts get-caller-identity` reports the expected assumed role.
+9. Confirm listing the allowed `reports/` prefix succeeds.
+10. Confirm reading an object outside the allowed prefix is denied.
+11. Confirm an untrusted branch or repository cannot assume the role.
+12. Review CloudTrail events and remove test resources when finished.
 
 Do not claim the workflow is working until these checks have actually been performed. Use a dedicated test bucket and non-sensitive sample objects.
 
@@ -188,12 +317,14 @@ The central lesson is to treat the pipeline as an identity with a defined trust 
 
 ## References
 
-- [AWS IAM: Creating an OIDC identity provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
-- [AWS IAM: Creating a role for OIDC federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html)
-- [AWS STS AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html)
-- [GitHub Actions: Configuring OIDC in AWS](https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-aws)
-- [GitHub Actions workflow permissions](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#permissions)
-- [AWS IAM best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
+* [AWS IAM: Creating an OIDC identity provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
+* [AWS IAM: Creating a role for OIDC federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html)
+* [AWS STS AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html)
+* [GitHub Actions: Configuring OIDC in AWS](https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-aws)
+* [GitHub Actions: OpenID Connect reference and immutable subject claims](https://docs.github.com/en/actions/reference/security/oidc)
+* [GitHub Changelog: Immutable subject claims for GitHub Actions OIDC tokens](https://github.blog/changelog/2026-04-23-immutable-subject-claims-for-github-actions-oidc-tokens/)
+* [GitHub Actions workflow permissions](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#permissions)
+* [AWS IAM best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
 
 ---
 
