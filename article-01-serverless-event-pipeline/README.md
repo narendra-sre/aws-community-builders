@@ -11,8 +11,26 @@ This project accompanies the article [Building a Serverless Event-Driven Process
 
 ## Implementation status
 
-This is a reference implementation and has not yet been deployed or validated in a live AWS account. Review the Terraform plan and security configuration before applying it.
+**Deployed and validated in AWS.**
 
+The infrastructure was provisioned using Terraform in
+`ap-south-2`.
+
+Validation covered:
+
+- S3 event notifications.
+- SQS message delivery.
+- Lambda processing.
+- Failure handling and retries.
+- Dead-letter queue routing.
+- CloudWatch monitoring.
+
+See the `evidence/` directory for deployment outputs,
+validation logs, queue configurations, alarm information,
+and AWS Console screenshots.
+
+The infrastructure was removed after validation to avoid
+unnecessary ongoing costs.
 ## Prerequisites
 
 - Terraform compatible with the constraint in `versions.tf`
