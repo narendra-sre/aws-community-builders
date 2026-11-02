@@ -1,6 +1,6 @@
 data "aws_iam_policy_document" "github_actions_trust" {
   statement {
-    sid     = "AllowSpecificGitHubRepositoryBranch"
+    sid     = "AllowSpecificGitHubRepositoryWorkflow"
     effect  = "Allow"
     actions = ["sts:AssumeRoleWithWebIdentity"]
 
@@ -18,7 +18,7 @@ data "aws_iam_policy_document" "github_actions_trust" {
     condition {
       test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:${var.github_owner}/${var.github_repository}:ref:refs/heads/${var.github_branch}"]
+      values   = [var.github_oidc_subject]
     }
   }
 }
@@ -27,7 +27,8 @@ resource "aws_iam_role" "github_actions_read_reports" {
   name                 = "github-actions-read-reports"
   assume_role_policy   = data.aws_iam_policy_document.github_actions_trust.json
   max_session_duration = 3600
-  description          = "Short-lived GitHub Actions role restricted to one repository branch."
+
+  description = "Short-lived GitHub Actions role restricted to one exact OIDC subject."
 }
 
 data "aws_iam_policy_document" "read_reports" {
