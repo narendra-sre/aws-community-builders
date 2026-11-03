@@ -1,0 +1,58 @@
+﻿{
+    "Events":  [
+                   {
+                       "EventId":  "c2950775-868a-4cdd-a961-968f4551a16a",
+                       "EventName":  "AssumeRoleWithWebIdentity",
+                       "ReadOnly":  "true",
+                       "EventTime":  "2026-11-03T20:36:54+05:30",
+                       "EventSource":  "sts.amazonaws.com",
+                       "Username":  "repo:narendra-sre@99658760/aws-community-builders@1436015236:ref:refs/heads/main",
+                       "Resources":  [
+                                         {
+                                             "ResourceType":  "AWS::STS::AssumedRole",
+                                             "ResourceName":  "arn:aws:sts::793040131921:assumed-role/github-actions-read-reports/GitHubActionsOIDCDemo"
+                                         },
+                                         {
+                                             "ResourceType":  "AWS::STS::AssumedRole",
+                                             "ResourceName":  "GitHubActionsOIDCDemo"
+                                         },
+                                         {
+                                             "ResourceType":  "AWS::STS::AssumedRole",
+                                             "ResourceName":  "AROA3RJHAC5ITHWCXKJ2U:GitHubActionsOIDCDemo"
+                                         },
+                                         {
+                                             "ResourceType":  "AWS::IAM::Role",
+                                             "ResourceName":  "arn:aws:iam::793040131921:role/github-actions-read-reports"
+                                         }
+                                     ],
+                       "CloudTrailEvent":  "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"WebIdentityUser\",\"principalId\":\"arn:aws:iam::793040131921:oidc-provider/token.actions.githubusercontent.com:sts.amazonaws.com:repo:narendra-sre@99658760/aws-community-builders@1436015236:ref:refs/heads/main\",\"userName\":\"repo:narendra-sre@99658760/aws-community-builders@1436015236:ref:refs/heads/main\",\"identityProvider\":\"arn:aws:iam::793040131921:oidc-provider/token.actions.githubusercontent.com\"},\"eventTime\":\"2026-11-03T15:06:54Z\",\"eventSource\":\"sts.amazonaws.com\",\"eventName\":\"AssumeRoleWithWebIdentity\",\"awsRegion\":\"ap-south-2\",\"sourceIPAddress\":\"52.173.165.167\",\"userAgent\":\"aws-sdk-js/3.859.0 ua/2.1 os/linux#7.0.0-1017-azure lang/js md/nodejs#24.22.1 api/sts#3.859.0 m/E configure-aws-credentials-for-github-actions\",\"requestParameters\":{\"roleArn\":\"arn:aws:iam::793040131921:role/github-actions-read-reports\",\"roleSessionName\":\"GitHubActionsOIDCDemo\",\"durationSeconds\":3600},\"responseElements\":{\"subjectFromWebIdentityToken\":\"repo:narendra-sre@99658760/aws-community-builders@1436015236:ref:refs/heads/main\",\"assumedRoleUser\":{\"assumedRoleId\":\"AROA3RJHAC5ITHWCXKJ2U:GitHubActionsOIDCDemo\",\"arn\":\"arn:aws:sts::793040131921:assumed-role/github-actions-read-reports/GitHubActionsOIDCDemo\"},\"packedPolicySize\":25,\"provider\":\"arn:aws:iam::793040131921:oidc-provider/token.actions.githubusercontent.com\",\"audience\":\"sts.amazonaws.com\",\"sessionTokenUtilization\":25,\"sessionTokenSize\":1056},\"additionalEventData\":{\"ExtendedRequestId\":\"MTphcC1zb3V0aC0yOlM6MTc5MzcxODQxNDEwNzpSOnRJZGZpQ0Fh\",\"identityProviderConnectionVerificationMethod\":\"IAMTrustStore\",\"RequestDetails\":{\"endpointType\":\"regional\",\"awsServingRegion\":\"ap-south-2\"}},\"requestID\":\"a920e347-eb46-470a-a985-992a826df13e\",\"eventID\":\"c2950775-868a-4cdd-a961-968f4551a16a\",\"readOnly\":true,\"resources\":[{\"accountId\":\"793040131921\",\"type\":\"AWS::IAM::Role\",\"ARN\":\"arn:aws:iam::793040131921:role/github-actions-read-reports\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"793040131921\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"sts.ap-south-2.amazonaws.com\",\"keyExchange\":\"X25519MLKEM768\"}}"
+                   },
+                   {
+                       "EventId":  "1162c82f-fd61-4ade-b5ab-da69622f470b",
+                       "EventName":  "AssumeRoleWithWebIdentity",
+                       "ReadOnly":  "true",
+                       "EventTime":  "2026-11-03T20:34:24+05:30",
+                       "EventSource":  "sts.amazonaws.com",
+                       "Username":  "repo:narendra-sre@99658760/aws-community-builders@1436015236:ref:refs/heads/main",
+                       "Resources":  [
+                                         {
+                                             "ResourceType":  "AWS::STS::AssumedRole",
+                                             "ResourceName":  "arn:aws:sts::793040131921:assumed-role/github-actions-read-reports/GitHubActionsOIDCDemo"
+                                         },
+                                         {
+                                             "ResourceType":  "AWS::STS::AssumedRole",
+                                             "ResourceName":  "GitHubActionsOIDCDemo"
+                                         },
+                                         {
+                                             "ResourceType":  "AWS::STS::AssumedRole",
+                                             "ResourceName":  "AROA3RJHAC5ITHWCXKJ2U:GitHubActionsOIDCDemo"
+                                         },
+                                         {
+                                             "ResourceType":  "AWS::IAM::Role",
+                                             "ResourceName":  "arn:aws:iam::793040131921:role/github-actions-read-reports"
+                                         }
+                                     ],
+                       "CloudTrailEvent":  "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"WebIdentityUser\",\"principalId\":\"arn:aws:iam::793040131921:oidc-provider/token.actions.githubusercontent.com:sts.amazonaws.com:repo:narendra-sre@99658760/aws-community-builders@1436015236:ref:refs/heads/main\",\"userName\":\"repo:narendra-sre@99658760/aws-community-builders@1436015236:ref:refs/heads/main\",\"identityProvider\":\"arn:aws:iam::793040131921:oidc-provider/token.actions.githubusercontent.com\"},\"eventTime\":\"2026-11-03T15:04:24Z\",\"eventSource\":\"sts.amazonaws.com\",\"eventName\":\"AssumeRoleWithWebIdentity\",\"awsRegion\":\"ap-south-2\",\"sourceIPAddress\":\"20.64.182.28\",\"userAgent\":\"aws-sdk-js/3.859.0 ua/2.1 os/linux#7.0.0-1017-azure lang/js md/nodejs#24.22.1 api/sts#3.859.0 m/E configure-aws-credentials-for-github-actions\",\"requestParameters\":{\"roleArn\":\"arn:aws:iam::793040131921:role/github-actions-read-reports\",\"roleSessionName\":\"GitHubActionsOIDCDemo\",\"durationSeconds\":3600},\"responseElements\":{\"subjectFromWebIdentityToken\":\"repo:narendra-sre@99658760/aws-community-builders@1436015236:ref:refs/heads/main\",\"assumedRoleUser\":{\"assumedRoleId\":\"AROA3RJHAC5ITHWCXKJ2U:GitHubActionsOIDCDemo\",\"arn\":\"arn:aws:sts::793040131921:assumed-role/github-actions-read-reports/GitHubActionsOIDCDemo\"},\"packedPolicySize\":25,\"provider\":\"arn:aws:iam::793040131921:oidc-provider/token.actions.githubusercontent.com\",\"audience\":\"sts.amazonaws.com\",\"sessionTokenUtilization\":25,\"sessionTokenSize\":1056},\"additionalEventData\":{\"ExtendedRequestId\":\"MTphcC1zb3V0aC0yOlM6MTc5MzcxODI2NDAzOTpSOjFNS0RhV3lR\",\"identityProviderConnectionVerificationMethod\":\"IAMTrustStore\",\"RequestDetails\":{\"awsServingRegion\":\"ap-south-2\",\"endpointType\":\"regional\"}},\"requestID\":\"11d8834b-5a8b-47d5-b9df-68eee6ee2ea6\",\"eventID\":\"1162c82f-fd61-4ade-b5ab-da69622f470b\",\"readOnly\":true,\"resources\":[{\"accountId\":\"793040131921\",\"type\":\"AWS::IAM::Role\",\"ARN\":\"arn:aws:iam::793040131921:role/github-actions-read-reports\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"793040131921\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"sts.ap-south-2.amazonaws.com\",\"keyExchange\":\"X25519MLKEM768\"}}"
+                   }
+               ]
+}
