@@ -1,0 +1,7 @@
+﻿{
+  "github_actions_role_arn": {
+    "sensitive": false,
+    "type": "string",
+    "value": "arn:aws:iam::793040131921:role/github-actions-read-reports"
+  }
+}

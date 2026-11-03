@@ -1,0 +1,66 @@
+﻿{
+    "Events": [
+        {
+            "EventId": "c2950775-868a-4cdd-a961-968f4551a16a",
+            "EventName": "AssumeRoleWithWebIdentity",
+            "ReadOnly": "true",
+            "EventTime": "2026-11-03T20:36:54+05:30",
+            "EventSource": "sts.amazonaws.com",
+            "Username": "repo:narendra-sre@99658760/aws-community-builders@1436015236:ref:refs/heads/main",
+            "Resources": [
+                {
+                    "ResourceType": "AWS::IAM::AccessKey",
+                    "ResourceName": "ASIA3RJHAC5IXTOKU4NS"
+                },
+                {
+                    "ResourceType": "AWS::STS::AssumedRole",
+                    "ResourceName": "arn:aws:sts::793040131921:assumed-role/github-actions-read-reports/GitHubActionsOIDCDemo"
+                },
+                {
+                    "ResourceType": "AWS::STS::AssumedRole",
+                    "ResourceName": "GitHubActionsOIDCDemo"
+                },
+                {
+                    "ResourceType": "AWS::STS::AssumedRole",
+                    "ResourceName": "AROA3RJHAC5ITHWCXKJ2U:GitHubActionsOIDCDemo"
+                },
+                {
+                    "ResourceType": "AWS::IAM::Role",
+                    "ResourceName": "arn:aws:iam::793040131921:role/github-actions-read-reports"
+                }
+            ],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"WebIdentityUser\",\"principalId\":\"arn:aws:iam::793040131921:oidc-provider/token.actions.githubusercontent.com:sts.amazonaws.com:repo:narendra-sre@99658760/aws-community-builders@1436015236:ref:refs/heads/main\",\"userName\":\"repo:narendra-sre@99658760/aws-community-builders@1436015236:ref:refs/heads/main\",\"identityProvider\":\"arn:aws:iam::793040131921:oidc-provider/token.actions.githubusercontent.com\"},\"eventTime\":\"2026-11-03T15:06:54Z\",\"eventSource\":\"sts.amazonaws.com\",\"eventName\":\"AssumeRoleWithWebIdentity\",\"awsRegion\":\"ap-south-2\",\"sourceIPAddress\":\"52.173.165.167\",\"userAgent\":\"aws-sdk-js/3.859.0 ua/2.1 os/linux#7.0.0-1017-azure lang/js md/nodejs#24.22.1 api/sts#3.859.0 m/E configure-aws-credentials-for-github-actions\",\"requestParameters\":{\"webIdentityTokenId\":\"86ff4798-dc17-49c2-9381-e2a00699a8e7\",\"roleArn\":\"arn:aws:iam::793040131921:role/github-actions-read-reports\",\"roleSessionName\":\"GitHubActionsOIDCDemo\",\"durationSeconds\":3600},\"responseElements\":{\"credentials\":{\"accessKeyId\":\"ASIA3RJHAC5IXTOKU4NS\",\"sessionToken\":\"IQoJb3JpZ2luX2VjEEgaCmFwLXNvdXRoLTIiRjBEAiAx6Uu6BwnnaUSJd+D9ebZ7MHIqgh5c2KS57bsgX3uXAAIgJ6DbJhp1P/oASiM+OUHg5hAcyWKfDnCfgzKySqTlBOgqlQQImP//////////ARAAGgw3OTMwNDAxMzE5MjEiDLhP4rzytLSgQ5ed1irpA5Abz8XJKxfPRCUZymCdMqbkodiwHqxTDFLx6z/7EmQ63bXmhXofSDelo11OV/US/d7UQ4l+IGfMekruLke9oCbbbxpIgWtGRGiTPTlWKMraKf2x4o55TBrjPXb9PA1kjx2p9aaWXvfMohkBxe/mIp6/1W6e9G/+au7IAVIiQACXhe4FQUNVElwuSCius+GI3N2JL5vUTrL3Fr4cZzY99246WKEZlgq5gWdZgDfGHhpOjtk8OywhUA7JBNDdEiuNpx7G1H+JRoZHtxkRL92TdwRxC/GZm0MHmOOvgFtqJwbeRvhLCMqYKWGZtg2h4XH/+zCIFGKkqZOo6GWFo1tvzfgKQJIVpqm4tBSvlDtKlgeyWjMFIGwXMTZsxw1dB/qnOY5wsC8vD3g30ZXFLjsRnTJZKmxXywhw/7PQO75LTmkVZ7YzARSz7Rc2dVimI0NRIZGLv5Nd97LR/X1/GkqYxJ4qHN3yPn0l8qepV3PUDvgHCX4aEl2RPw0u9c7mjNZIGSf4N7w9sEZyMxgJeTeL9hfx7SeIPb/LcCQArgdKhA36gwMOhfqwNATE93IdTP1EQHRvQcLRYVlS+nCZvbBCCRve3z1WCvRgEnhYfByIFVK6AShtVztt3alJJddnTRBV4Btr14HsVdJmEzCO8afXBjqTAQ50ElN30ymxsJq+2BsmIPwGcgQAYGZYxaCpaG4O4qJvP0l5ABUy+pJLKy69v394GBsxkihWj8dwZPK4uYBNGZZXgmTMblBChc3xk9jtetlC6iFrTILDvq5CZptvh8GMZ9eI2c4Dq+C6uwF1fRSTYBSklzWOc/nfDbKti0GnY3oCa5Np6OQPvt6TRYoLWy0JUcSdVA==\",\"expiration\":\"2026-11-03T16:06:54Z\"},\"subjectFromWebIdentityToken\":\"repo:narendra-sre@99658760/aws-community-builders@1436015236:ref:refs/heads/main\",\"assumedRoleUser\":{\"assumedRoleId\":\"AROA3RJHAC5ITHWCXKJ2U:GitHubActionsOIDCDemo\",\"arn\":\"arn:aws:sts::793040131921:assumed-role/github-actions-read-reports/GitHubActionsOIDCDemo\"},\"packedPolicySize\":25,\"provider\":\"arn:aws:iam::793040131921:oidc-provider/token.actions.githubusercontent.com\",\"audience\":\"sts.amazonaws.com\",\"sessionTokenUtilization\":25,\"sessionTokenSize\":1056},\"additionalEventData\":{\"ExtendedRequestId\":\"MTphcC1zb3V0aC0yOlM6MTc5MzcxODQxNDEwNzpSOnRJZGZpQ0Fh\",\"identityProviderConnectionVerificationMethod\":\"IAMTrustStore\",\"RequestDetails\":{\"endpointType\":\"regional\",\"awsServingRegion\":\"ap-south-2\"}},\"requestID\":\"a920e347-eb46-470a-a985-992a826df13e\",\"eventID\":\"c2950775-868a-4cdd-a961-968f4551a16a\",\"readOnly\":true,\"resources\":[{\"accountId\":\"793040131921\",\"type\":\"AWS::IAM::Role\",\"ARN\":\"arn:aws:iam::793040131921:role/github-actions-read-reports\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"793040131921\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"sts.ap-south-2.amazonaws.com\",\"keyExchange\":\"X25519MLKEM768\"}}"
+        },
+        {
+            "EventId": "1162c82f-fd61-4ade-b5ab-da69622f470b",
+            "EventName": "AssumeRoleWithWebIdentity",
+            "ReadOnly": "true",
+            "EventTime": "2026-11-03T20:34:24+05:30",
+            "EventSource": "sts.amazonaws.com",
+            "Username": "repo:narendra-sre@99658760/aws-community-builders@1436015236:ref:refs/heads/main",
+            "Resources": [
+                {
+                    "ResourceType": "AWS::IAM::AccessKey",
+                    "ResourceName": "ASIA3RJHAC5IS7WB5LO4"
+                },
+                {
+                    "ResourceType": "AWS::STS::AssumedRole",
+                    "ResourceName": "arn:aws:sts::793040131921:assumed-role/github-actions-read-reports/GitHubActionsOIDCDemo"
+                },
+                {
+                    "ResourceType": "AWS::STS::AssumedRole",
+                    "ResourceName": "GitHubActionsOIDCDemo"
+                },
+                {
+                    "ResourceType": "AWS::STS::AssumedRole",
+                    "ResourceName": "AROA3RJHAC5ITHWCXKJ2U:GitHubActionsOIDCDemo"
+                },
+                {
+                    "ResourceType": "AWS::IAM::Role",
+                    "ResourceName": "arn:aws:iam::793040131921:role/github-actions-read-reports"
+                }
+            ],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"WebIdentityUser\",\"principalId\":\"arn:aws:iam::793040131921:oidc-provider/token.actions.githubusercontent.com:sts.amazonaws.com:repo:narendra-sre@99658760/aws-community-builders@1436015236:ref:refs/heads/main\",\"userName\":\"repo:narendra-sre@99658760/aws-community-builders@1436015236:ref:refs/heads/main\",\"identityProvider\":\"arn:aws:iam::793040131921:oidc-provider/token.actions.githubusercontent.com\"},\"eventTime\":\"2026-11-03T15:04:24Z\",\"eventSource\":\"sts.amazonaws.com\",\"eventName\":\"AssumeRoleWithWebIdentity\",\"awsRegion\":\"ap-south-2\",\"sourceIPAddress\":\"20.64.182.28\",\"userAgent\":\"aws-sdk-js/3.859.0 ua/2.1 os/linux#7.0.0-1017-azure lang/js md/nodejs#24.22.1 api/sts#3.859.0 m/E configure-aws-credentials-for-github-actions\",\"requestParameters\":{\"webIdentityTokenId\":\"c5e6d053-3167-449c-bb9b-7c7a0d3be410\",\"roleArn\":\"arn:aws:iam::793040131921:role/github-actions-read-reports\",\"roleSessionName\":\"GitHubActionsOIDCDemo\",\"durationSeconds\":3600},\"responseElements\":{\"credentials\":{\"accessKeyId\":\"ASIA3RJHAC5IS7WB5LO4\",\"sessionToken\":\"IQoJb3JpZ2luX2VjEEgaCmFwLXNvdXRoLTIiRjBEAiABABHQ8N+2AZ+jnoh7aNk2P8SgGq9j1NAExsXKHTOMBAIgASFpOy+2drxRLnCixmnxxTw/1zLDb6rkydjLjVkPjfMqlQQImP//////////ARAAGgw3OTMwNDAxMzE5MjEiDOrJ1lp+deFis+dWHyrpAxpiUAnRmKO+RdVMIk4984AM2m0jYMN9cMS+49AyJfPe/tP76bSuD4FrIXh6o/ZSUzeoXyYWLFu/EETS/H4U58WI7b4kt4Djg81tINvF82ZkARAwNq+n5nzJ0W+mwk4/7WBvxctFc61nUJ3n5LVibGnVQVs0CktKZLq67EYs+vofZdbweL5zKcM05hquufI+uqyoRrENkOuCRgjiWf85IWm4ufNLc8jLm8C07exQpRKo8h52AOO59clsds+HsT+RCBGVEiaYDP5TWIQvbWejc+G2bzGLsK1Zwg7T0Pc9Yp4F92HzKDwsM/RrthU/cvzKXPixAA/3baHb0WXULLn/odgG94Q+rwQIZO40Z9KR8wEZWBuCGa4BV4A/q1I1Ci/tKE94Pj833cd7tX5+vINvJ+Wu+CC3rnvtfjcRdX/YYuFjY+zkrn2d71zfdTaJPehSVMZi1W7+elgD00YjjUYUfi+WlkBHLBPmmJ0VuCeHWwbXxYUoGu5LdDNbD9+pXgnD1SHAFE/xujjhh24a0dKWKVYrnVYQ+TKy7p1BZHLQWWH8pTErv7+KQwUFh27TH8oI80eP+G2Ma8sJPCU9ncHIShM5Lo5Sg2jlTObGIezgB4PdInokJQa76QRuyRc3GXhlGYE018uwAxWlNTD476fXBjqTAa42LuKzAxVXWhFmNGdMDTTrQ+a4oTowsEjGHMXab098t9tldsPDElunBP5FRIYTFybFxq/RzwLZkgjd5LK5SVqEWSBkusoIL9AaqTus2vciRZJnjRYgG0UOCwMBSTfF2QUorV05MMWkban1YXlHSr0JWtydkE7Dq7aRA2wxfLM00aek55buWMRKTt6aKTf7EzM5WA==\",\"expiration\":\"2026-11-03T16:04:24Z\"},\"subjectFromWebIdentityToken\":\"repo:narendra-sre@99658760/aws-community-builders@1436015236:ref:refs/heads/main\",\"assumedRoleUser\":{\"assumedRoleId\":\"AROA3RJHAC5ITHWCXKJ2U:GitHubActionsOIDCDemo\",\"arn\":\"arn:aws:sts::793040131921:assumed-role/github-actions-read-reports/GitHubActionsOIDCDemo\"},\"packedPolicySize\":25,\"provider\":\"arn:aws:iam::793040131921:oidc-provider/token.actions.githubusercontent.com\",\"audience\":\"sts.amazonaws.com\",\"sessionTokenUtilization\":25,\"sessionTokenSize\":1056},\"additionalEventData\":{\"ExtendedRequestId\":\"MTphcC1zb3V0aC0yOlM6MTc5MzcxODI2NDAzOTpSOjFNS0RhV3lR\",\"identityProviderConnectionVerificationMethod\":\"IAMTrustStore\",\"RequestDetails\":{\"awsServingRegion\":\"ap-south-2\",\"endpointType\":\"regional\"}},\"requestID\":\"11d8834b-5a8b-47d5-b9df-68eee6ee2ea6\",\"eventID\":\"1162c82f-fd61-4ade-b5ab-da69622f470b\",\"readOnly\":true,\"resources\":[{\"accountId\":\"793040131921\",\"type\":\"AWS::IAM::Role\",\"ARN\":\"arn:aws:iam::793040131921:role/github-actions-read-reports\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"793040131921\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"sts.ap-south-2.amazonaws.com\",\"keyExchange\":\"X25519MLKEM768\"}}"
+        }
+    ]
+}
