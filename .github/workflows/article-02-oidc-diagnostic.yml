@@ -1,0 +1,52 @@
+name: Article 2 - OIDC Subject Diagnostic
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  inspect-oidc:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Inspect GitHub OIDC claims
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          TOKEN_RESPONSE=$(curl --fail --silent --show-error --get \
+            --data-urlencode "audience=sts.amazonaws.com" \
+            -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "$ACTIONS_ID_TOKEN_REQUEST_URL")
+
+          TOKEN=$(printf '%s' "$TOKEN_RESPONSE" | jq -r '.value')
+
+          if [ -z "$TOKEN" ] || [ "$TOKEN" = "null" ]; then
+            echo "Unable to retrieve OIDC token"
+            exit 1
+          fi
+
+          python3 - "$TOKEN" <<'PY'
+          import base64
+          import json
+          import sys
+
+          token = sys.argv[1]
+          payload = token.split(".")[1]
+          payload += "=" * (-len(payload) % 4)
+
+          claims = json.loads(
+              base64.urlsafe_b64decode(payload)
+          )
+
+          print(json.dumps({
+              "sub": claims.get("sub"),
+              "aud": claims.get("aud"),
+              "iss": claims.get("iss")
+          }, indent=2))
+          PY
+
+          unset TOKEN TOKEN_RESPONSE
