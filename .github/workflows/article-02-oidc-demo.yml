@@ -28,3 +28,24 @@ jobs:
         env:
           DEMO_BUCKET: ${{ vars.DEMO_BUCKET }}
         run: aws s3 ls "s3://${DEMO_BUCKET}/reports/"
+
+      - name: Verify access is denied outside the approved prefix
+        env:
+          DEMO_BUCKET: ${{ vars.DEMO_BUCKET }}
+        run: |
+          if aws s3api get-object \
+            --bucket "$DEMO_BUCKET" \
+            --key "private/sample.txt" \
+            /tmp/private-sample.txt \
+            2>/tmp/denied-error.txt; then
+            echo "ERROR: Unexpected access to private/ prefix"
+            exit 1
+          else
+            if grep -q "AccessDenied" /tmp/denied-error.txt; then
+              echo "SUCCESS: Access to private/ prefix was denied as expected"
+            else
+              echo "ERROR: Request failed for a reason other than AccessDenied"
+              cat /tmp/denied-error.txt
+              exit 1
+            fi
+          fi
