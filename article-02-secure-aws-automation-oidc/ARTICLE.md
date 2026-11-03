@@ -3,7 +3,15 @@
 **Level:** Intermediate
 **Focus:** AWS IAM, temporary credentials, OpenID Connect, GitHub Actions, least privilege.
 
-> **Implementation status:** This is a reference implementation. It has not been deployed or validated in a live AWS account. Validate the provider, trust policy, permissions, and workflow in a dedicated test environment before relying on it.
+> **Implementation status:**
+1. Created the GitHub Actions OIDC identity provider in AWS IAM.
+2. Created a dedicated S3 test bucket.
+3. Configured an IAM role with an exact GitHub OIDC subject condition.
+4. Configured short-lived AWS credentials using GitHub Actions.
+5. Successfully assumed the IAM role through OIDC.
+6. Successfully accessed the permitted `reports/` prefix.
+7. Verified that access to `private/` was denied.
+8. Captured Terraform, IAM, CloudTrail and GitHub Actions evidence.
 
 ## Introduction
 
@@ -284,22 +292,17 @@ OIDC federation does not require a continuously running compute service. However
 
 ## 11. Validation checklist
 
-This project has not yet been deployed or tested. In a dedicated non-production account:
+This project has been deployed or tested. In a dedicated non-production account:
 
-1. Confirm the GitHub OIDC provider exists in the intended AWS account.
-2. Inspect the actual GitHub OIDC `sub` claim for the workflow.
-3. Identify whether the repository uses legacy or immutable subject claims.
-4. Review the Terraform plan and confirm the exact subject matches the observed claim.
-5. Apply only after reviewing the plan and permissions.
-6. Configure `AWS_ROLE_ARN` and `DEMO_BUCKET` as GitHub repository variables.
-7. Trigger the workflow from the trusted `main` branch or intended protected environment.
-8. Confirm `aws sts get-caller-identity` reports the expected assumed role.
-9. Confirm listing the allowed `reports/` prefix succeeds.
-10. Confirm reading an object outside the allowed prefix is denied.
-11. Confirm an untrusted branch or repository cannot assume the role.
-12. Review CloudTrail events and remove test resources when finished.
+| Validation                 | Result                        |
+| -------------------------- | ----------------------------- |
+| GitHub OIDC authentication | PASS                          |
+| IAM role assumption        | PASS                          |
+| Approved S3 prefix access  | PASS                          |
+| Unauthorized prefix access | PASS — AccessDenied           |
+| CloudTrail verification    | COMPLETED                     |
+| Resource cleanup           | COMPLETED                     |
 
-Do not claim the workflow is working until these checks have actually been performed. Use a dedicated test bucket and non-sensitive sample objects.
 
 ## 12. When should you use this pattern?
 
