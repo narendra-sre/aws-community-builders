@@ -30,3 +30,21 @@ This project accompanies `ARTICLE.md`.
    terraform fmt -check
    terraform validate
    terraform plan
+
+## Implementation and Validation
+
+The demonstration was deployed and validated using AWS IAM,
+Amazon S3, Terraform, GitHub Actions, and OpenID Connect.
+
+### Validated Scenarios
+
+- GitHub Actions successfully authenticated with AWS using OIDC.
+- AWS issued temporary credentials through STS.
+- The IAM role permitted access to the approved `reports/` prefix.
+- Access to the `private/` prefix was denied.
+- GitHub Actions execution screenshots and AWS evidence were captured.
+
+### Evidence
+
+See the `evidence/` directory for Terraform plans, IAM
+configuration, CloudTrail results, and workflow screenshots.
