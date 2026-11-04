@@ -1,0 +1,16 @@
+﻿{
+    "Tags": [
+        {
+            "Key": "Environment",
+            "Value": "development"
+        },
+        {
+            "Key": "ManagedBy",
+            "Value": "Terraform"
+        },
+        {
+            "Key": "Name",
+            "Value": "Terraform infrastructure drift"
+        }
+    ]
+}

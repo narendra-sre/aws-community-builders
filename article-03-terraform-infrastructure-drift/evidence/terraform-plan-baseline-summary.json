@@ -1,0 +1,1230 @@
+﻿{
+  "format_version": "1.2",
+  "terraform_version": "1.16.2",
+  "variables": {
+    "aws_region": {
+      "value": "ap-south-2"
+    },
+    "instance_type": {
+      "value": "t3.micro"
+    },
+    "project_name": {
+      "value": "Terraform infrastructure drift"
+    }
+  },
+  "planned_values": {
+    "outputs": {
+      "aws_region": {
+        "sensitive": false,
+        "type": "string",
+        "value": "ap-south-2"
+      },
+      "instance_ami": {
+        "sensitive": false,
+        "type": "string"
+      },
+      "instance_id": {
+        "sensitive": false,
+        "type": "string"
+      },
+      "instance_type": {
+        "sensitive": false,
+        "type": "string",
+        "value": "t3.micro"
+      },
+      "security_group_id": {
+        "sensitive": false,
+        "type": "string"
+      }
+    },
+    "root_module": {
+      "resources": [
+        {
+          "address": "aws_instance.drift_demo",
+          "mode": "managed",
+          "type": "aws_instance",
+          "name": "drift_demo",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 1,
+          "values": {
+            "associate_public_ip_address": true,
+            "availability_zone": "ap-south-2b",
+            "capacity_reservation_specification": [
+              {
+                "capacity_reservation_preference": "open",
+                "capacity_reservation_target": []
+              }
+            ],
+            "cpu_core_count": 1,
+            "cpu_options": [
+              {
+                "amd_sev_snp": "",
+                "core_count": 1,
+                "threads_per_core": 2
+              }
+            ],
+            "cpu_threads_per_core": 2,
+            "credit_specification": [
+              {
+                "cpu_credits": "unlimited"
+              }
+            ],
+            "disable_api_stop": false,
+            "disable_api_termination": false,
+            "ebs_block_device": [],
+            "ebs_optimized": false,
+            "enable_primary_ipv6": null,
+            "enclave_options": [
+              {
+                "enabled": false
+              }
+            ],
+            "ephemeral_block_device": [],
+            "get_password_data": false,
+            "hibernation": false,
+            "host_id": "",
+            "host_resource_group_arn": null,
+            "iam_instance_profile": "",
+            "instance_initiated_shutdown_behavior": "stop",
+            "instance_lifecycle": "",
+            "instance_market_options": [],
+            "instance_state": "running",
+            "instance_type": "t3.micro",
+            "ipv6_address_count": 0,
+            "ipv6_addresses": [],
+            "key_name": "",
+            "launch_template": [],
+            "maintenance_options": [
+              {
+                "auto_recovery": "default"
+              }
+            ],
+            "metadata_options": [
+              {
+                "http_endpoint": "enabled",
+                "http_protocol_ipv6": "disabled",
+                "http_put_response_hop_limit": 2,
+                "http_tokens": "required",
+                "instance_metadata_tags": "disabled"
+              }
+            ],
+            "monitoring": false,
+            "network_interface": [],
+            "outpost_arn": "",
+            "password_data": "",
+            "placement_group": "",
+            "placement_partition_number": 0,
+            "private_dns_name_options": [
+              {
+                "enable_resource_name_dns_a_record": false,
+                "enable_resource_name_dns_aaaa_record": false,
+                "hostname_type": "ip-name"
+              }
+            ],
+            "root_block_device": [
+              {
+                "delete_on_termination": true,
+                "device_name": "/dev/xvda",
+                "encrypted": false,
+                "iops": 3000,
+                "kms_key_id": "",
+                "tags": {},
+                "tags_all": {},
+                "throughput": 125,
+                "volume_size": 8,
+                "volume_type": "gp3"
+              }
+            ],
+            "secondary_private_ips": [],
+            "security_groups": [
+              "Terraform infrastructure drift-sg"
+            ],
+            "source_dest_check": true,
+            "spot_instance_request_id": "",
+            "tags": {
+              "Environment": "development",
+              "ManagedBy": "Terraform",
+              "Name": "Terraform infrastructure drift"
+            },
+            "tags_all": {
+              "Environment": "development",
+              "ManagedBy": "Terraform",
+              "Name": "Terraform infrastructure drift"
+            },
+            "tenancy": "default",
+            "timeouts": null,
+            "user_data": null,
+            "user_data_base64": null,
+            "user_data_replace_on_change": false,
+            "volume_tags": null,
+            "vpc_security_group_ids": [
+            ]
+          },
+          "sensitive_values": {
+            "capacity_reservation_specification": [
+              {
+                "capacity_reservation_target": []
+              }
+            ],
+            "cpu_options": [
+              {}
+            ],
+            "credit_specification": [
+              {}
+            ],
+            "ebs_block_device": [],
+            "enclave_options": [
+              {}
+            ],
+            "ephemeral_block_device": [],
+            "instance_market_options": [],
+            "ipv6_addresses": [],
+            "launch_template": [],
+            "maintenance_options": [
+              {}
+            ],
+            "metadata_options": [
+              {}
+            ],
+            "network_interface": [],
+            "private_dns_name_options": [
+              {}
+            ],
+            "root_block_device": [
+              {
+                "tags": {},
+                "tags_all": {}
+              }
+            ],
+            "secondary_private_ips": [],
+            "security_groups": [
+              false
+            ],
+            "tags": {},
+            "tags_all": {},
+            "vpc_security_group_ids": [
+              false
+            ]
+          }
+        },
+        {
+          "address": "aws_security_group.drift_demo",
+          "mode": "managed",
+          "type": "aws_security_group",
+          "name": "drift_demo",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 1,
+          "values": {
+            "egress": [],
+            "ingress": [],
+            "name": "Terraform infrastructure drift-sg",
+            "name_prefix": "",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Environment": "development",
+              "ManagedBy": "Terraform",
+              "Name": "Terraform infrastructure drift-sg"
+            },
+            "tags_all": {
+              "Environment": "development",
+              "ManagedBy": "Terraform",
+              "Name": "Terraform infrastructure drift-sg"
+            },
+            "timeouts": null
+          },
+          "sensitive_values": {
+            "egress": [],
+            "ingress": [],
+            "tags": {},
+            "tags_all": {}
+          }
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "aws_instance.drift_demo",
+      "mode": "managed",
+      "type": "aws_instance",
+      "name": "drift_demo",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": [
+          "no-op"
+        ],
+        "before": {
+          "associate_public_ip_address": true,
+          "availability_zone": "ap-south-2b",
+          "capacity_reservation_specification": [
+            {
+              "capacity_reservation_preference": "open",
+              "capacity_reservation_target": []
+            }
+          ],
+          "cpu_core_count": 1,
+          "cpu_options": [
+            {
+              "amd_sev_snp": "",
+              "core_count": 1,
+              "threads_per_core": 2
+            }
+          ],
+          "cpu_threads_per_core": 2,
+          "credit_specification": [
+            {
+              "cpu_credits": "unlimited"
+            }
+          ],
+          "disable_api_stop": false,
+          "disable_api_termination": false,
+          "ebs_block_device": [],
+          "ebs_optimized": false,
+          "enable_primary_ipv6": null,
+          "enclave_options": [
+            {
+              "enabled": false
+            }
+          ],
+          "ephemeral_block_device": [],
+          "get_password_data": false,
+          "hibernation": false,
+          "host_id": "",
+          "host_resource_group_arn": null,
+          "iam_instance_profile": "",
+          "instance_initiated_shutdown_behavior": "stop",
+          "instance_lifecycle": "",
+          "instance_market_options": [],
+          "instance_state": "running",
+          "instance_type": "t3.micro",
+          "ipv6_address_count": 0,
+          "ipv6_addresses": [],
+          "key_name": "",
+          "launch_template": [],
+          "maintenance_options": [
+            {
+              "auto_recovery": "default"
+            }
+          ],
+          "metadata_options": [
+            {
+              "http_endpoint": "enabled",
+              "http_protocol_ipv6": "disabled",
+              "http_put_response_hop_limit": 2,
+              "http_tokens": "required",
+              "instance_metadata_tags": "disabled"
+            }
+          ],
+          "monitoring": false,
+          "network_interface": [],
+          "outpost_arn": "",
+          "password_data": "",
+          "placement_group": "",
+          "placement_partition_number": 0,
+          "private_dns_name_options": [
+            {
+              "enable_resource_name_dns_a_record": false,
+              "enable_resource_name_dns_aaaa_record": false,
+              "hostname_type": "ip-name"
+            }
+          ],
+          "root_block_device": [
+            {
+              "delete_on_termination": true,
+              "device_name": "/dev/xvda",
+              "encrypted": false,
+              "iops": 3000,
+              "kms_key_id": "",
+              "tags": {},
+              "tags_all": {},
+              "throughput": 125,
+              "volume_size": 8,
+              "volume_type": "gp3"
+            }
+          ],
+          "secondary_private_ips": [],
+          "security_groups": [
+            "Terraform infrastructure drift-sg"
+          ],
+          "source_dest_check": true,
+          "spot_instance_request_id": "",
+          "tags": {
+            "Environment": "development",
+            "ManagedBy": "Terraform",
+            "Name": "Terraform infrastructure drift"
+          },
+          "tags_all": {
+            "Environment": "development",
+            "ManagedBy": "Terraform",
+            "Name": "Terraform infrastructure drift"
+          },
+          "tenancy": "default",
+          "timeouts": null,
+          "user_data": null,
+          "user_data_base64": null,
+          "user_data_replace_on_change": false,
+          "volume_tags": null,
+          "vpc_security_group_ids": [
+          ]
+        },
+        "after": {
+          "associate_public_ip_address": true,
+          "availability_zone": "ap-south-2b",
+          "capacity_reservation_specification": [
+            {
+              "capacity_reservation_preference": "open",
+              "capacity_reservation_target": []
+            }
+          ],
+          "cpu_core_count": 1,
+          "cpu_options": [
+            {
+              "amd_sev_snp": "",
+              "core_count": 1,
+              "threads_per_core": 2
+            }
+          ],
+          "cpu_threads_per_core": 2,
+          "credit_specification": [
+            {
+              "cpu_credits": "unlimited"
+            }
+          ],
+          "disable_api_stop": false,
+          "disable_api_termination": false,
+          "ebs_block_device": [],
+          "ebs_optimized": false,
+          "enable_primary_ipv6": null,
+          "enclave_options": [
+            {
+              "enabled": false
+            }
+          ],
+          "ephemeral_block_device": [],
+          "get_password_data": false,
+          "hibernation": false,
+          "host_id": "",
+          "host_resource_group_arn": null,
+          "iam_instance_profile": "",
+          "instance_initiated_shutdown_behavior": "stop",
+          "instance_lifecycle": "",
+          "instance_market_options": [],
+          "instance_state": "running",
+          "instance_type": "t3.micro",
+          "ipv6_address_count": 0,
+          "ipv6_addresses": [],
+          "key_name": "",
+          "launch_template": [],
+          "maintenance_options": [
+            {
+              "auto_recovery": "default"
+            }
+          ],
+          "metadata_options": [
+            {
+              "http_endpoint": "enabled",
+              "http_protocol_ipv6": "disabled",
+              "http_put_response_hop_limit": 2,
+              "http_tokens": "required",
+              "instance_metadata_tags": "disabled"
+            }
+          ],
+          "monitoring": false,
+          "network_interface": [],
+          "outpost_arn": "",
+          "password_data": "",
+          "placement_group": "",
+          "placement_partition_number": 0,
+          "private_dns_name_options": [
+            {
+              "enable_resource_name_dns_a_record": false,
+              "enable_resource_name_dns_aaaa_record": false,
+              "hostname_type": "ip-name"
+            }
+          ],
+          "root_block_device": [
+            {
+              "delete_on_termination": true,
+              "device_name": "/dev/xvda",
+              "encrypted": false,
+              "iops": 3000,
+              "kms_key_id": "",
+              "tags": {},
+              "tags_all": {},
+              "throughput": 125,
+              "volume_size": 8,
+              "volume_type": "gp3"
+            }
+          ],
+          "secondary_private_ips": [],
+          "security_groups": [
+            "Terraform infrastructure drift-sg"
+          ],
+          "source_dest_check": true,
+          "spot_instance_request_id": "",
+          "tags": {
+            "Environment": "development",
+            "ManagedBy": "Terraform",
+            "Name": "Terraform infrastructure drift"
+          },
+          "tags_all": {
+            "Environment": "development",
+            "ManagedBy": "Terraform",
+            "Name": "Terraform infrastructure drift"
+          },
+          "tenancy": "default",
+          "timeouts": null,
+          "user_data": null,
+          "user_data_base64": null,
+          "user_data_replace_on_change": false,
+          "volume_tags": null,
+          "vpc_security_group_ids": [
+          ]
+        },
+        "after_unknown": {},
+        "before_sensitive": {
+          "capacity_reservation_specification": [
+            {
+              "capacity_reservation_target": []
+            }
+          ],
+          "cpu_options": [
+            {}
+          ],
+          "credit_specification": [
+            {}
+          ],
+          "ebs_block_device": [],
+          "enclave_options": [
+            {}
+          ],
+          "ephemeral_block_device": [],
+          "instance_market_options": [],
+          "ipv6_addresses": [],
+          "launch_template": [],
+          "maintenance_options": [
+            {}
+          ],
+          "metadata_options": [
+            {}
+          ],
+          "network_interface": [],
+          "private_dns_name_options": [
+            {}
+          ],
+          "root_block_device": [
+            {
+              "tags": {},
+              "tags_all": {}
+            }
+          ],
+          "secondary_private_ips": [],
+          "security_groups": [
+            false
+          ],
+          "tags": {},
+          "tags_all": {},
+          "vpc_security_group_ids": [
+            false
+          ]
+        },
+        "after_sensitive": {
+          "capacity_reservation_specification": [
+            {
+              "capacity_reservation_target": []
+            }
+          ],
+          "cpu_options": [
+            {}
+          ],
+          "credit_specification": [
+            {}
+          ],
+          "ebs_block_device": [],
+          "enclave_options": [
+            {}
+          ],
+          "ephemeral_block_device": [],
+          "instance_market_options": [],
+          "ipv6_addresses": [],
+          "launch_template": [],
+          "maintenance_options": [
+            {}
+          ],
+          "metadata_options": [
+            {}
+          ],
+          "network_interface": [],
+          "private_dns_name_options": [
+            {}
+          ],
+          "root_block_device": [
+            {
+              "tags": {},
+              "tags_all": {}
+            }
+          ],
+          "secondary_private_ips": [],
+          "security_groups": [
+            false
+          ],
+          "tags": {},
+          "tags_all": {},
+          "vpc_security_group_ids": [
+            false
+          ]
+        }
+      }
+    },
+    {
+      "address": "aws_security_group.drift_demo",
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "drift_demo",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": [
+          "no-op"
+        ],
+        "before": {
+          "description": "Security group for Terraform infrastructure drift demonstration.",
+          "egress": [],
+          "ingress": [],
+          "name": "Terraform infrastructure drift-sg",
+          "name_prefix": "",
+          "revoke_rules_on_delete": false,
+          "tags": {
+            "Environment": "development",
+            "ManagedBy": "Terraform",
+            "Name": "Terraform infrastructure drift-sg"
+          },
+          "tags_all": {
+            "Environment": "development",
+            "ManagedBy": "Terraform",
+            "Name": "Terraform infrastructure drift-sg"
+          },
+          "timeouts": null
+        },
+        "after": {
+          "description": "Security group for Terraform infrastructure drift demonstration.",
+          "egress": [],
+          "ingress": [],
+          "name": "Terraform infrastructure drift-sg",
+          "name_prefix": "",
+          "revoke_rules_on_delete": false,
+          "tags": {
+            "Environment": "development",
+            "ManagedBy": "Terraform",
+            "Name": "Terraform infrastructure drift-sg"
+          },
+          "tags_all": {
+            "Environment": "development",
+            "ManagedBy": "Terraform",
+            "Name": "Terraform infrastructure drift-sg"
+          },
+          "timeouts": null
+        },
+        "after_unknown": {},
+        "before_sensitive": {
+          "egress": [],
+          "ingress": [],
+          "tags": {},
+          "tags_all": {}
+        },
+        "after_sensitive": {
+          "egress": [],
+          "ingress": [],
+          "tags": {},
+          "tags_all": {}
+        }
+      }
+    }
+  ],
+  "output_changes": {
+    "aws_region": {
+      "actions": [
+        "no-op"
+      ],
+      "before": "ap-south-2",
+      "after": "ap-south-2",
+      "after_unknown": false,
+      "before_sensitive": false,
+      "after_sensitive": false
+    },
+    "instance_ami": {
+      "actions": [
+        "no-op"
+      ],
+      "after_unknown": false,
+      "before_sensitive": false,
+      "after_sensitive": false
+    },
+    "instance_id": {
+      "actions": [
+        "no-op"
+      ],
+      "after_unknown": false,
+      "before_sensitive": false,
+      "after_sensitive": false
+    },
+    "instance_type": {
+      "actions": [
+        "no-op"
+      ],
+      "before": "t3.micro",
+      "after": "t3.micro",
+      "after_unknown": false,
+      "before_sensitive": false,
+      "after_sensitive": false
+    },
+    "security_group_id": {
+      "actions": [
+        "no-op"
+      ],
+      "after_unknown": false,
+      "before_sensitive": false,
+      "after_sensitive": false
+    }
+  },
+  "prior_state": {
+    "format_version": "1.0",
+    "terraform_version": "1.16.2",
+    "values": {
+      "outputs": {
+        "aws_region": {
+          "sensitive": false,
+          "value": "ap-south-2",
+          "type": "string"
+        },
+        "instance_ami": {
+          "sensitive": false,
+          "type": "string"
+        },
+        "instance_id": {
+          "sensitive": false,
+          "type": "string"
+        },
+        "instance_type": {
+          "sensitive": false,
+          "value": "t3.micro",
+          "type": "string"
+        },
+        "security_group_id": {
+          "sensitive": false,
+          "type": "string"
+        }
+      },
+      "root_module": {
+        "resources": [
+          {
+            "address": "data.aws_ami.amazon_linux",
+            "mode": "data",
+            "type": "aws_ami",
+            "name": "amazon_linux",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "schema_version": 0,
+            "values": {
+              "architecture": "x86_64",
+              "block_device_mappings": [
+                {
+                  "device_name": "/dev/xvda",
+                  "ebs": {
+                    "delete_on_termination": "true",
+                    "encrypted": "false",
+                    "iops": "3000",
+                    "throughput": "125",
+                    "volume_initialization_rate": "0",
+                    "volume_size": "8",
+                    "volume_type": "gp3"
+                  },
+                  "no_device": "",
+                  "virtual_name": ""
+                }
+              ],
+              "boot_mode": "uefi-preferred",
+              "creation_date": "2026-10-30T14:07:13.000Z",
+              "deprecation_time": "2027-01-28T14:09:00.000Z",
+              "description": "Amazon Linux 2023 AMI 2023.12.20261102.0 x86_64 HVM kernel-6.12",
+              "ena_support": true,
+              "executable_users": null,
+              "filter": [
+                {
+                  "name": "architecture",
+                  "values": [
+                    "x86_64"
+                  ]
+                },
+                {
+                  "name": "name",
+                  "values": [
+                    "al2023-ami-2023.*-x86_64"
+                  ]
+                },
+                {
+                  "name": "virtualization-type",
+                  "values": [
+                    "hvm"
+                  ]
+                }
+              ],
+              "hypervisor": "xen",
+              "image_owner_alias": "amazon",
+              "image_type": "machine",
+              "imds_support": "v2.0",
+              "include_deprecated": false,
+              "kernel_id": "",
+              "last_launched_time": "",
+              "most_recent": true,
+              "name_regex": null,
+              "owners": [
+                "amazon"
+              ],
+              "platform": "",
+              "platform_details": "Linux/UNIX",
+              "product_codes": [],
+              "public": true,
+              "ramdisk_id": "",
+              "root_device_name": "/dev/xvda",
+              "root_device_type": "ebs",
+              "sriov_net_support": "simple",
+              "state": "available",
+              "state_reason": {
+                "code": "UNSET",
+                "message": "UNSET"
+              },
+              "tags": {},
+              "timeouts": null,
+              "tpm_support": "",
+              "uefi_data": null,
+              "usage_operation": "RunInstances",
+              "virtualization_type": "hvm"
+            },
+            "sensitive_values": {
+              "block_device_mappings": [
+                {
+                  "ebs": {}
+                }
+              ],
+              "filter": [
+                {
+                  "values": [
+                    false
+                  ]
+                },
+                {
+                  "values": [
+                    false
+                  ]
+                },
+                {
+                  "values": [
+                    false
+                  ]
+                }
+              ],
+              "owners": [
+                false
+              ],
+              "product_codes": [],
+              "state_reason": {},
+              "tags": {}
+            }
+          },
+          {
+            "address": "aws_instance.drift_demo",
+            "mode": "managed",
+            "type": "aws_instance",
+            "name": "drift_demo",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "schema_version": 1,
+            "values": {
+              "associate_public_ip_address": true,
+              "availability_zone": "ap-south-2b",
+              "capacity_reservation_specification": [
+                {
+                  "capacity_reservation_preference": "open",
+                  "capacity_reservation_target": []
+                }
+              ],
+              "cpu_core_count": 1,
+              "cpu_options": [
+                {
+                  "amd_sev_snp": "",
+                  "core_count": 1,
+                  "threads_per_core": 2
+                }
+              ],
+              "cpu_threads_per_core": 2,
+              "credit_specification": [
+                {
+                  "cpu_credits": "unlimited"
+                }
+              ],
+              "disable_api_stop": false,
+              "disable_api_termination": false,
+              "ebs_block_device": [],
+              "ebs_optimized": false,
+              "enable_primary_ipv6": null,
+              "enclave_options": [
+                {
+                  "enabled": false
+                }
+              ],
+              "ephemeral_block_device": [],
+              "get_password_data": false,
+              "hibernation": false,
+              "host_id": "",
+              "host_resource_group_arn": null,
+              "iam_instance_profile": "",
+              "instance_initiated_shutdown_behavior": "stop",
+              "instance_lifecycle": "",
+              "instance_market_options": [],
+              "instance_state": "running",
+              "instance_type": "t3.micro",
+              "ipv6_address_count": 0,
+              "ipv6_addresses": [],
+              "key_name": "",
+              "launch_template": [],
+              "maintenance_options": [
+                {
+                  "auto_recovery": "default"
+                }
+              ],
+              "metadata_options": [
+                {
+                  "http_endpoint": "enabled",
+                  "http_protocol_ipv6": "disabled",
+                  "http_put_response_hop_limit": 2,
+                  "http_tokens": "required",
+                  "instance_metadata_tags": "disabled"
+                }
+              ],
+              "monitoring": false,
+              "network_interface": [],
+              "outpost_arn": "",
+              "password_data": "",
+              "placement_group": "",
+              "placement_partition_number": 0,
+              "private_dns_name_options": [
+                {
+                  "enable_resource_name_dns_a_record": false,
+                  "enable_resource_name_dns_aaaa_record": false,
+                  "hostname_type": "ip-name"
+                }
+              ],
+              "root_block_device": [
+                {
+                  "delete_on_termination": true,
+                  "device_name": "/dev/xvda",
+                  "encrypted": false,
+                  "iops": 3000,
+                  "kms_key_id": "",
+                  "tags": {},
+                  "tags_all": {},
+                  "throughput": 125,
+                  "volume_size": 8,
+                  "volume_type": "gp3"
+                }
+              ],
+              "secondary_private_ips": [],
+              "security_groups": [
+                "Terraform infrastructure drift-sg"
+              ],
+              "source_dest_check": true,
+              "spot_instance_request_id": "",
+              "tags": {
+                "Environment": "development",
+                "ManagedBy": "Terraform",
+                "Name": "Terraform infrastructure drift"
+              },
+              "tags_all": {
+                "Environment": "development",
+                "ManagedBy": "Terraform",
+                "Name": "Terraform infrastructure drift"
+              },
+              "tenancy": "default",
+              "timeouts": null,
+              "user_data": null,
+              "user_data_base64": null,
+              "user_data_replace_on_change": false,
+              "volume_tags": null,
+              "vpc_security_group_ids": []
+            },
+            "sensitive_values": {
+              "capacity_reservation_specification": [
+                {
+                  "capacity_reservation_target": []
+                }
+              ],
+              "cpu_options": [
+                {}
+              ],
+              "credit_specification": [
+                {}
+              ],
+              "ebs_block_device": [],
+              "enclave_options": [
+                {}
+              ],
+              "ephemeral_block_device": [],
+              "instance_market_options": [],
+              "ipv6_addresses": [],
+              "launch_template": [],
+              "maintenance_options": [
+                {}
+              ],
+              "metadata_options": [
+                {}
+              ],
+              "network_interface": [],
+              "private_dns_name_options": [
+                {}
+              ],
+              "root_block_device": [
+                {
+                  "tags": {},
+                  "tags_all": {}
+                }
+              ],
+              "secondary_private_ips": [],
+              "security_groups": [
+                false
+              ],
+              "tags": {},
+              "tags_all": {},
+              "vpc_security_group_ids": [
+                false
+              ]
+            },
+            "depends_on": [
+              "aws_security_group.drift_demo",
+              "data.aws_ami.amazon_linux"
+            ]
+          },
+          {
+            "address": "aws_security_group.drift_demo",
+            "mode": "managed",
+            "type": "aws_security_group",
+            "name": "drift_demo",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "schema_version": 1,
+            "values": {
+              "description": "Security group for Terraform infrastructure drift demonstration.",
+              "egress": [],
+              "ingress": [],
+              "name": "Terraform infrastructure drift-sg",
+              "name_prefix": "",
+              "revoke_rules_on_delete": false,
+              "tags": {
+                "Environment": "development",
+                "ManagedBy": "Terraform",
+                "Name": "Terraform infrastructure drift-sg"
+              },
+              "tags_all": {
+                "Environment": "development",
+                "ManagedBy": "Terraform",
+                "Name": "Terraform infrastructure drift-sg"
+              },
+              "timeouts": null
+            },
+            "sensitive_values": {
+              "egress": [],
+              "ingress": [],
+              "tags": {},
+              "tags_all": {}
+            }
+          }
+        ]
+      }
+    }
+  },
+  "configuration": {
+    "provider_config": {
+      "aws": {
+        "name": "aws",
+        "full_name": "registry.terraform.io/hashicorp/aws",
+        "version_constraint": "~\u003e 5.0",
+        "expressions": {
+          "region": {
+            "references": [
+              "var.aws_region"
+            ]
+          }
+        }
+      }
+    },
+    "root_module": {
+      "outputs": {
+        "aws_region": {
+          "expression": {
+            "references": [
+              "var.aws_region"
+            ]
+          },
+          "description": "AWS deployment region"
+        },
+        "instance_ami": {
+          "expression": {
+            "references": [
+              "aws_instance.drift_demo.ami",
+              "aws_instance.drift_demo"
+            ]
+          },
+          "description": "EC2 instance ami"
+        },
+        "instance_id": {
+          "expression": {
+            "references": [
+              "aws_instance.drift_demo.id",
+              "aws_instance.drift_demo"
+            ]
+          },
+          "description": "EC2 instance ID"
+        },
+        "instance_type": {
+          "expression": {
+            "references": [
+              "aws_instance.drift_demo.instance_type",
+              "aws_instance.drift_demo"
+            ]
+          },
+          "description": "EC2 instance type"
+        },
+        "security_group_id": {
+          "expression": {
+            "references": [
+              "aws_security_group.drift_demo.id",
+              "aws_security_group.drift_demo"
+            ]
+          },
+          "description": "Security group ID"
+        }
+      },
+      "resources": [
+        {
+          "address": "aws_instance.drift_demo",
+          "mode": "managed",
+          "type": "aws_instance",
+          "name": "drift_demo",
+          "provider_config_key": "aws",
+          "expressions": {
+            "ami": {
+              "references": [
+                "data.aws_ami.amazon_linux.id",
+                "data.aws_ami.amazon_linux"
+              ]
+            },
+            "instance_type": {
+              "references": [
+                "var.instance_type"
+              ]
+            },
+            "tags": {
+              "references": [
+                "var.project_name"
+              ]
+            },
+            "vpc_security_group_ids": {
+              "references": [
+                "aws_security_group.drift_demo.id",
+                "aws_security_group.drift_demo"
+              ]
+            }
+          },
+          "schema_version": 1
+        },
+        {
+          "address": "aws_security_group.drift_demo",
+          "mode": "managed",
+          "type": "aws_security_group",
+          "name": "drift_demo",
+          "provider_config_key": "aws",
+          "expressions": {
+            "description": {
+              "constant_value": "Security group for Terraform infrastructure drift demonstration."
+            },
+            "name": {
+              "references": [
+                "var.project_name"
+              ]
+            },
+            "tags": {
+              "references": [
+                "var.project_name"
+              ]
+            }
+          },
+          "schema_version": 1
+        },
+        {
+          "address": "data.aws_ami.amazon_linux",
+          "mode": "data",
+          "type": "aws_ami",
+          "name": "amazon_linux",
+          "provider_config_key": "aws",
+          "expressions": {
+            "filter": [
+              {
+                "name": {
+                  "constant_value": "name"
+                },
+                "values": {
+                  "constant_value": [
+                    "al2023-ami-2023.*-x86_64"
+                  ]
+                }
+              },
+              {
+                "name": {
+                  "constant_value": "architecture"
+                },
+                "values": {
+                  "constant_value": [
+                    "x86_64"
+                  ]
+                }
+              },
+              {
+                "name": {
+                  "constant_value": "virtualization-type"
+                },
+                "values": {
+                  "constant_value": [
+                    "hvm"
+                  ]
+                }
+              }
+            ],
+            "most_recent": {
+              "constant_value": true
+            },
+            "owners": {
+              "constant_value": [
+                "amazon"
+              ]
+            }
+          },
+          "schema_version": 0
+        }
+      ],
+      "variables": {
+        "aws_region": {
+          "default": "ap-south-2",
+          "description": "AWS region for the infrastructure drift detection"
+        },
+        "instance_type": {
+          "default": "t3.micro",
+          "description": "EC2 instance type for demonstration"
+        },
+        "project_name": {
+          "default": "Terraform infrastructure drift",
+          "description": "Name of the Article 3 project."
+        }
+      }
+    }
+  },
+  "timestamp": "2026-11-04T03:51:49Z",
+  "applyable": false,
+  "complete": true,
+  "errored": false
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="650" viewBox="0 0 1400 650">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#475569"/></marker></defs>
+<rect width="1400" height="650" fill="#f8fafc"/><text x="50" y="55" font-family="Arial" font-size="30" font-weight="bold" fill="#172554">Terraform infrastructure drift: detection and remediation</text>
+<rect x="35" y="95" width="1330" height="510" rx="22" fill="white" stroke="#cbd5e1" stroke-width="2"/>
+<g font-family="Arial" text-anchor="middle" fill="#0f172a">
+<rect x="90" y="180" width="240" height="105" rx="15" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/><text x="210" y="222" font-size="22" font-weight="bold">Terraform</text><text x="210" y="252" font-size="16">Declared configuration</text>
+<rect x="430" y="180" width="250" height="105" rx="15" fill="#fff7ed" stroke="#f59e0b" stroke-width="2"/><text x="555" y="222" font-size="22" font-weight="bold">AWS EC2</text><text x="555" y="252" font-size="16">Instance + tags</text>
+<rect x="790" y="180" width="240" height="105" rx="15" fill="white" stroke="#64748b" stroke-width="2"/><text x="910" y="222" font-size="22" font-weight="bold">Manual change</text><text x="910" y="252" font-size="16">development → production</text>
+<rect x="1120" y="180" width="200" height="105" rx="15" fill="#fff7ed" stroke="#f59e0b" stroke-width="2"/><text x="1220" y="222" font-size="22" font-weight="bold">CloudTrail</text><text x="1220" y="252" font-size="16">CreateTags event</text>
+<rect x="150" y="405" width="260" height="110" rx="15" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/><text x="280" y="450" font-size="22" font-weight="bold">terraform plan</text><text x="280" y="480" font-size="16">Detect drift</text>
+<rect x="570" y="405" width="260" height="110" rx="15" fill="white" stroke="#64748b" stroke-width="2"/><text x="700" y="450" font-size="22" font-weight="bold">Review plan</text><text x="700" y="480" font-size="16">production → development</text>
+<rect x="990" y="405" width="260" height="110" rx="15" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/><text x="1120" y="450" font-size="22" font-weight="bold">terraform apply</text><text x="1120" y="480" font-size="16">Restore declared state</text>
+</g>
+<g stroke="#475569" stroke-width="3" fill="none" marker-end="url(#a)"><path d="M330 232H420"/><path d="M680 232H780"/><path d="M1030 232H1110"/><path d="M910 285V350H280V395"/><path d="M410 460H560"/><path d="M830 460H980"/></g>
+<text x="700" y="565" text-anchor="middle" font-family="Arial" font-size="17" fill="#334155">After remediation, run terraform plan again: No changes (expected).</text>
+</svg>
