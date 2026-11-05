@@ -1,0 +1,13 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+tfplan
+terraform.tfvars
+crash.log
+
+# Build output and local helpers
+terraform/.build/
+.last_test_sg
+.last_test_sg_exempt

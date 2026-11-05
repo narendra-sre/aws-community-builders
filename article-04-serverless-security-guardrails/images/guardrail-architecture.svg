@@ -1,0 +1,48 @@
+<svg viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L9,3 L0,6 Z" fill="#444"/>
+    </marker>
+  </defs>
+  <rect width="900" height="360" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">Event-driven security guardrail</text>
+
+  <!-- Row 1: detection and remediation -->
+  <rect x="20"  y="70" width="150" height="60" rx="8" fill="#eef4ff" stroke="#3b6fd8"/>
+  <text x="95"  y="95" text-anchor="middle" font-size="13" fill="#222">Engineer or</text>
+  <text x="95"  y="112" text-anchor="middle" font-size="13" fill="#222">pipeline API call</text>
+
+  <rect x="210" y="70" width="150" height="60" rx="8" fill="#eef4ff" stroke="#3b6fd8"/>
+  <text x="285" y="95" text-anchor="middle" font-size="13" fill="#222">CloudTrail</text>
+  <text x="285" y="112" text-anchor="middle" font-size="12" fill="#555">management events</text>
+
+  <rect x="400" y="70" width="150" height="60" rx="8" fill="#eef4ff" stroke="#3b6fd8"/>
+  <text x="475" y="95" text-anchor="middle" font-size="13" fill="#222">EventBridge rule</text>
+  <text x="475" y="112" text-anchor="middle" font-size="12" fill="#555">pattern match + retry</text>
+
+  <rect x="590" y="70" width="150" height="60" rx="8" fill="#fff4e6" stroke="#d98a1f"/>
+  <text x="665" y="95" text-anchor="middle" font-size="13" fill="#222">Lambda remediator</text>
+  <text x="665" y="112" text-anchor="middle" font-size="12" fill="#555">idempotent, dry-run</text>
+
+  <line x1="170" y1="100" x2="208" y2="100" stroke="#444" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="360" y1="100" x2="398" y2="100" stroke="#444" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="550" y1="100" x2="588" y2="100" stroke="#444" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Row 2: outputs -->
+  <rect x="590" y="200" width="150" height="60" rx="8" fill="#eaf7ee" stroke="#2e8b57"/>
+  <text x="665" y="225" text-anchor="middle" font-size="13" fill="#222">DynamoDB</text>
+  <text x="665" y="242" text-anchor="middle" font-size="12" fill="#555">audit findings</text>
+
+  <rect x="400" y="200" width="150" height="60" rx="8" fill="#eaf7ee" stroke="#2e8b57"/>
+  <text x="475" y="225" text-anchor="middle" font-size="13" fill="#222">SNS to email</text>
+  <text x="475" y="242" text-anchor="middle" font-size="12" fill="#555">alert on action</text>
+
+  <rect x="210" y="200" width="150" height="60" rx="8" fill="#fdecec" stroke="#c0392b"/>
+  <text x="285" y="225" text-anchor="middle" font-size="13" fill="#222">SQS dead-letter</text>
+  <text x="285" y="242" text-anchor="middle" font-size="12" fill="#555">after retries fail</text>
+
+  <line x1="665" y1="130" x2="665" y2="198" stroke="#444" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="610" y1="130" x2="500" y2="198" stroke="#444" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="475" y1="130" x2="340" y2="198" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+  <text x="400" y="180" font-size="11" fill="#c0392b">retries exhausted</text>
+</svg>

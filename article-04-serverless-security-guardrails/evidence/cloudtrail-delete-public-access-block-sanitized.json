@@ -1,0 +1,84 @@
+{
+    "Events": [
+        {
+            "EventId": "53e1e95e-0ad3-4974-adbf-951bdfb5dc30",
+            "EventName": "DeleteBucketPublicAccessBlock",
+            "ReadOnly": "false",
+            "AccessKeyId": "AKIA3RJHAC5I5NAWYHSH",
+            "EventTime": "2026-11-05T14:18:29+00:00",
+            "EventSource": "s3.amazonaws.com",
+            "Username": "awsbuilder",
+            "Resources": [
+                {
+                    "ResourceType": "AWS::S3::Bucket",
+                    "ResourceName": "guardrail-test-manual-111122223333"
+                }
+            ],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA3RJHAC5I3HJQVV3R6\",\"arn\":\"arn:aws:iam::111122223333:user/awsbuilder\",\"accountId\":\"111122223333\",\"accessKeyId\":\"AKIA3RJHAC5I5NAWYHSH\",\"userName\":\"awsbuilder\"},\"eventTime\":\"2026-11-05T14:18:29Z\",\"eventSource\":\"s3.amazonaws.com\",\"eventName\":\"DeleteBucketPublicAccessBlock\",\"awsRegion\":\"ap-south-2\",\"sourceIPAddress\":\"117.251.253.36\",\"userAgent\":\"[aws-cli/2.35.21 md/awscrt#0.35.0 ua/2.1 os/linux#6.6.87.2-microsoft-standard-WSL2 md/arch#x86_64 lang/python#3.14.6 md/pyimpl#CPython m/Z,E,n,b cfg/retry-mode#standard md/installer#exe sid/045d0390a3ef md/distrib#ubuntu.24 md/prompt#off md/command#s3api.delete-public-access-block]\",\"requestParameters\":{\"publicAccessBlock\":\"\",\"bucketName\":\"guardrail-test-manual-111122223333\",\"Host\":\"guardrail-test-manual-111122223333.s3.ap-south-2.amazonaws.com\"},\"responseElements\":null,\"additionalEventData\":{\"SignatureVersion\":\"SigV4\",\"CipherSuite\":\"TLS_CHACHA20_POLY1305_SHA256\",\"bytesTransferredIn\":0,\"startTime\":1793888308775,\"AuthenticationMethod\":\"AuthHeader\",\"endTime\":1793888309120,\"x-amz-id-2\":\"O0F+c03CdbatQ/PbhLf8TnuHucqQ2ZE/r7/Z+lnZx3LVNMqPP1UI3iNrdUwWZVM19hMrB2hfufYxg78+z3Q3/43c+qLsLeKk\",\"httpStatusCode\":204,\"bytesTransferredOut\":0},\"requestID\":\"S2DFYDQ6CTQXGRVG\",\"eventID\":\"53e1e95e-0ad3-4974-adbf-951bdfb5dc30\",\"readOnly\":false,\"resources\":[{\"accountId\":\"111122223333\",\"type\":\"AWS::S3::Bucket\",\"ARN\":\"arn:aws:s3:::guardrail-test-manual-111122223333\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"111122223333\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_CHACHA20_POLY1305_SHA256\",\"clientProvidedHostHeader\":\"guardrail-test-manual-111122223333.s3.ap-south-2.amazonaws.com\",\"keyExchange\":\"X25519MLKEM768\"}}"
+        },
+        {
+            "EventId": "282be798-9724-4bab-8d95-bce788094618",
+            "EventName": "DeleteBucketPublicAccessBlock",
+            "ReadOnly": "false",
+            "AccessKeyId": "AKIA3RJHAC5I5NAWYHSH",
+            "EventTime": "2026-11-05T14:07:23+00:00",
+            "EventSource": "s3.amazonaws.com",
+            "Username": "awsbuilder",
+            "Resources": [
+                {
+                    "ResourceType": "AWS::S3::Bucket",
+                    "ResourceName": "guardrail-test-1793887630-111122223333"
+                }
+            ],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA3RJHAC5I3HJQVV3R6\",\"arn\":\"arn:aws:iam::111122223333:user/awsbuilder\",\"accountId\":\"111122223333\",\"accessKeyId\":\"AKIA3RJHAC5I5NAWYHSH\",\"userName\":\"awsbuilder\"},\"eventTime\":\"2026-11-05T14:07:23Z\",\"eventSource\":\"s3.amazonaws.com\",\"eventName\":\"DeleteBucketPublicAccessBlock\",\"awsRegion\":\"ap-south-2\",\"sourceIPAddress\":\"117.251.253.36\",\"userAgent\":\"[aws-cli/2.33.23 md/awscrt#0.31.1 ua/2.1 os/windows#11 md/arch#amd64 lang/python#3.13.11 md/pyimpl#CPython m/n,b,E,Z cfg/retry-mode#standard md/installer#exe md/prompt#off md/command#s3api.delete-public-access-block]\",\"requestParameters\":{\"publicAccessBlock\":\"\",\"bucketName\":\"guardrail-test-1793887630-111122223333\",\"Host\":\"guardrail-test-1793887630-111122223333.s3.ap-south-2.amazonaws.com\"},\"responseElements\":null,\"additionalEventData\":{\"SignatureVersion\":\"SigV4\",\"CipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"bytesTransferredIn\":0,\"startTime\":1793887643003,\"AuthenticationMethod\":\"AuthHeader\",\"endTime\":1793887643339,\"x-amz-id-2\":\"yZM0W8odPA7xVJgXSMhuaxqHrHFrqw8rqL/3460sygz9GNXCJ4CzHeXoVj/03J4N2uHj/yMcQeYOm3GryZiDh02j32WNweRq\",\"httpStatusCode\":204,\"bytesTransferredOut\":0},\"requestID\":\"S6R61MS2WDEGEWQY\",\"eventID\":\"282be798-9724-4bab-8d95-bce788094618\",\"readOnly\":false,\"resources\":[{\"accountId\":\"111122223333\",\"type\":\"AWS::S3::Bucket\",\"ARN\":\"arn:aws:s3:::guardrail-test-1793887630-111122223333\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"111122223333\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"guardrail-test-1793887630-111122223333.s3.ap-south-2.amazonaws.com\",\"keyExchange\":\"x25519\"}}"
+        },
+        {
+            "EventId": "62b7bba9-49f8-4b47-b7f2-d5f344f80cdf",
+            "EventName": "DeleteBucketPublicAccessBlock",
+            "ReadOnly": "false",
+            "AccessKeyId": "AKIA3RJHAC5I5NAWYHSH",
+            "EventTime": "2026-11-05T14:04:14+00:00",
+            "EventSource": "s3.amazonaws.com",
+            "Username": "awsbuilder",
+            "Resources": [
+                {
+                    "ResourceType": "AWS::S3::Bucket",
+                    "ResourceName": "guardrail-test-1793887437-111122223333"
+                }
+            ],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA3RJHAC5I3HJQVV3R6\",\"arn\":\"arn:aws:iam::111122223333:user/awsbuilder\",\"accountId\":\"111122223333\",\"accessKeyId\":\"AKIA3RJHAC5I5NAWYHSH\",\"userName\":\"awsbuilder\"},\"eventTime\":\"2026-11-05T14:04:14Z\",\"eventSource\":\"s3.amazonaws.com\",\"eventName\":\"DeleteBucketPublicAccessBlock\",\"awsRegion\":\"ap-south-2\",\"sourceIPAddress\":\"117.251.253.36\",\"userAgent\":\"[aws-cli/2.33.23 md/awscrt#0.31.1 ua/2.1 os/windows#11 md/arch#amd64 lang/python#3.13.11 md/pyimpl#CPython m/n,Z,b,E cfg/retry-mode#standard md/installer#exe md/prompt#off md/command#s3api.delete-public-access-block]\",\"requestParameters\":{\"publicAccessBlock\":\"\",\"bucketName\":\"guardrail-test-1793887437-111122223333\",\"Host\":\"guardrail-test-1793887437-111122223333.s3.ap-south-2.amazonaws.com\"},\"responseElements\":null,\"additionalEventData\":{\"SignatureVersion\":\"SigV4\",\"CipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"bytesTransferredIn\":0,\"startTime\":1793887453871,\"AuthenticationMethod\":\"AuthHeader\",\"endTime\":1793887454202,\"x-amz-id-2\":\"qa18Fn/mfRX6CMfNJkgQrjNBtJadqPoQgfsjSUsy0tt3T0sCXy8ilYCcBQlE7NivfkGDg9T1lNN8c/0ggEbMypQOB0EieEZ0\",\"httpStatusCode\":204,\"bytesTransferredOut\":0},\"requestID\":\"WZTSQAJAG4EGP720\",\"eventID\":\"62b7bba9-49f8-4b47-b7f2-d5f344f80cdf\",\"readOnly\":false,\"resources\":[{\"accountId\":\"111122223333\",\"type\":\"AWS::S3::Bucket\",\"ARN\":\"arn:aws:s3:::guardrail-test-1793887437-111122223333\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"111122223333\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"guardrail-test-1793887437-111122223333.s3.ap-south-2.amazonaws.com\",\"keyExchange\":\"x25519\"}}"
+        },
+        {
+            "EventId": "37004e71-e05b-4e5a-a5bf-2ab34e354b04",
+            "EventName": "DeleteBucketPublicAccessBlock",
+            "ReadOnly": "false",
+            "AccessKeyId": "AKIA3RJHAC5I5NAWYHSH",
+            "EventTime": "2026-11-02T16:36:04+00:00",
+            "EventSource": "s3.amazonaws.com",
+            "Username": "awsbuilder",
+            "Resources": [
+                {
+                    "ResourceType": "AWS::S3::Bucket",
+                    "ResourceName": "s3-sqs-lambda-demo-20261102154145432300000001"
+                }
+            ],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA3RJHAC5I3HJQVV3R6\",\"arn\":\"arn:aws:iam::111122223333:user/awsbuilder\",\"accountId\":\"111122223333\",\"accessKeyId\":\"AKIA3RJHAC5I5NAWYHSH\",\"userName\":\"awsbuilder\"},\"eventTime\":\"2026-11-02T16:36:04Z\",\"eventSource\":\"s3.amazonaws.com\",\"eventName\":\"DeleteBucketPublicAccessBlock\",\"awsRegion\":\"ap-south-2\",\"sourceIPAddress\":\"117.196.174.168\",\"userAgent\":\"[APN/1.0 HashiCorp/1.0 Terraform/1.16.2 (+https://www.terraform.io) terraform-provider-aws/5.100.0 (+https://registry.terraform.io/providers/hashicorp/aws) aws-sdk-go-v2/1.36.3 ua/2.1 os/windows lang/go#1.23.10 md/GOOS#windows md/GOARCH#amd64 api/s3#1.80.1 m/n]\",\"errorCode\":\"OperationAborted\",\"errorMessage\":\"A conflicting conditional operation is currently in progress against this resource. Please try again.\",\"requestParameters\":{\"publicAccessBlock\":\"\",\"bucketName\":\"s3-sqs-lambda-demo-20261102154145432300000001\",\"Host\":\"s3-sqs-lambda-demo-20261102154145432300000001.s3.ap-south-2.amazonaws.com\"},\"responseElements\":null,\"additionalEventData\":{\"SignatureVersion\":\"SigV4\",\"CipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"bytesTransferredIn\":0,\"startTime\":1793637364145,\"AuthenticationMethod\":\"AuthHeader\",\"endTime\":1793637364269,\"x-amz-id-2\":\"KQCXQhK9EePBfEuWprqxlD1wBJaYUYaFshSfDnWV6smj3KGO+VY8H51IFbAYlCUzI9M18DCIuGfV8VMCQ5u50BUlX7RUTJoQ\",\"httpStatusCode\":409,\"bytesTransferredOut\":355},\"requestID\":\"VRBPMYESYX0J9PPR\",\"eventID\":\"37004e71-e05b-4e5a-a5bf-2ab34e354b04\",\"readOnly\":false,\"resources\":[{\"accountId\":\"111122223333\",\"type\":\"AWS::S3::Bucket\",\"ARN\":\"arn:aws:s3:::s3-sqs-lambda-demo-20261102154145432300000001\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"111122223333\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"s3-sqs-lambda-demo-20261102154145432300000001.s3.ap-south-2.amazonaws.com\"}}"
+        },
+        {
+            "EventId": "6b1b42ae-cf70-42e6-ba11-b5cc38776d1e",
+            "EventName": "DeleteBucketPublicAccessBlock",
+            "ReadOnly": "false",
+            "AccessKeyId": "AKIA3RJHAC5I5NAWYHSH",
+            "EventTime": "2026-11-02T16:36:04+00:00",
+            "EventSource": "s3.amazonaws.com",
+            "Username": "awsbuilder",
+            "Resources": [
+                {
+                    "ResourceType": "AWS::S3::Bucket",
+                    "ResourceName": "s3-sqs-lambda-demo-20261102154145432300000001"
+                }
+            ],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA3RJHAC5I3HJQVV3R6\",\"arn\":\"arn:aws:iam::111122223333:user/awsbuilder\",\"accountId\":\"111122223333\",\"accessKeyId\":\"AKIA3RJHAC5I5NAWYHSH\",\"userName\":\"awsbuilder\"},\"eventTime\":\"2026-11-02T16:36:04Z\",\"eventSource\":\"s3.amazonaws.com\",\"eventName\":\"DeleteBucketPublicAccessBlock\",\"awsRegion\":\"ap-south-2\",\"sourceIPAddress\":\"117.196.174.168\",\"userAgent\":\"[APN/1.0 HashiCorp/1.0 Terraform/1.16.2 (+https://www.terraform.io) terraform-provider-aws/5.100.0 (+https://registry.terraform.io/providers/hashicorp/aws) aws-sdk-go-v2/1.36.3 ua/2.1 os/windows lang/go#1.23.10 md/GOOS#windows md/GOARCH#amd64 api/s3#1.80.1 m/n]\",\"requestParameters\":{\"publicAccessBlock\":\"\",\"bucketName\":\"s3-sqs-lambda-demo-20261102154145432300000001\",\"Host\":\"s3-sqs-lambda-demo-20261102154145432300000001.s3.ap-south-2.amazonaws.com\"},\"responseElements\":null,\"additionalEventData\":{\"SignatureVersion\":\"SigV4\",\"CipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"bytesTransferredIn\":0,\"startTime\":1793637364387,\"AuthenticationMethod\":\"AuthHeader\",\"endTime\":1793637364729,\"x-amz-id-2\":\"0hxzYmkpfR4P+dTmKQ84/F0dMh3FsyShu++SMfIIOIEoRPBxuXK5+QpuguF+9sVbQm8ExKBsjzaGLG5fAKeyv7lc/CyhyVuE\",\"httpStatusCode\":204,\"bytesTransferredOut\":0},\"requestID\":\"VRBP4DT5535TV6WW\",\"eventID\":\"6b1b42ae-cf70-42e6-ba11-b5cc38776d1e\",\"readOnly\":false,\"resources\":[{\"accountId\":\"111122223333\",\"type\":\"AWS::S3::Bucket\",\"ARN\":\"arn:aws:s3:::s3-sqs-lambda-demo-20261102154145432300000001\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"111122223333\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"s3-sqs-lambda-demo-20261102154145432300000001.s3.ap-south-2.amazonaws.com\"}}"
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+{
+    "Events": [
+        {
+            "EventId": "0d36e5b0-991a-422b-a007-bbf81e1cb662",
+            "EventName": "AuthorizeSecurityGroupIngress",
+            "ReadOnly": "false",
+            "AccessKeyId": "AKIA3RJHAC5I5NAWYHSH",
+            "EventTime": "2026-11-05T14:18:03+00:00",
+            "EventSource": "ec2.amazonaws.com",
+            "Username": "awsbuilder",
+            "Resources": [
+                {
+                    "ResourceType": "AWS::EC2::SecurityGroup",
+                    "ResourceName": "sg-0d5f783d9bcc88d3a"
+                }
+            ],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA3RJHAC5I3HJQVV3R6\",\"arn\":\"arn:aws:iam::111122223333:user/awsbuilder\",\"accountId\":\"111122223333\",\"accessKeyId\":\"AKIA3RJHAC5I5NAWYHSH\",\"userName\":\"awsbuilder\"},\"eventTime\":\"2026-11-05T14:18:03Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"AuthorizeSecurityGroupIngress\",\"awsRegion\":\"ap-south-2\",\"sourceIPAddress\":\"117.251.253.36\",\"userAgent\":\"aws-cli/2.35.21 md/awscrt#0.35.0 ua/2.1 os/linux#6.6.87.2-microsoft-standard-WSL2 md/arch#x86_64 lang/python#3.14.6 md/pyimpl#CPython m/Z,E,n,b cfg/retry-mode#standard md/installer#exe sid/045d0390a3ef md/distrib#ubuntu.24 md/prompt#off md/command#ec2.authorize-security-group-ingress\",\"requestParameters\":{\"groupId\":\"sg-0d5f783d9bcc88d3a\",\"ipPermissions\":{\"items\":[{\"ipProtocol\":\"tcp\",\"fromPort\":22,\"toPort\":22,\"groups\":{},\"ipRanges\":{\"items\":[{\"cidrIp\":\"0.0.0.0/0\"}]},\"ipv6Ranges\":{},\"prefixListIds\":{}}]}},\"responseElements\":{\"requestId\":\"453ca3b7-f145-40aa-8e70-ba7b37fd674a\",\"_return\":true,\"securityGroupRuleSet\":{\"items\":[{\"groupOwnerId\":\"111122223333\",\"groupId\":\"sg-0d5f783d9bcc88d3a\",\"securityGroupRuleId\":\"sgr-0158057f957b3c12f\",\"isEgress\":false,\"ipProtocol\":\"tcp\",\"fromPort\":22,\"toPort\":22,\"cidrIpv4\":\"0.0.0.0/0\",\"securityGroupRuleArn\":\"arn:aws:ec2:ap-south-2:111122223333:security-group-rule/sgr-0158057f957b3c12f\"}]}},\"requestID\":\"453ca3b7-f145-40aa-8e70-ba7b37fd674a\",\"eventID\":\"0d36e5b0-991a-422b-a007-bbf81e1cb662\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"111122223333\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"ec2.ap-south-2.amazonaws.com\"}}"
+        },
+        {
+            "EventId": "05103880-bdab-4a85-95b9-1dfe7ef88f37",
+            "EventName": "AuthorizeSecurityGroupIngress",
+            "ReadOnly": "false",
+            "AccessKeyId": "AKIA3RJHAC5I5NAWYHSH",
+            "EventTime": "2026-11-05T14:17:20+00:00",
+            "EventSource": "ec2.amazonaws.com",
+            "Username": "awsbuilder",
+            "Resources": [
+                {
+                    "ResourceType": "AWS::EC2::SecurityGroup",
+                    "ResourceName": "sg-0d9d435fed4ef3742"
+                }
+            ],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA3RJHAC5I3HJQVV3R6\",\"arn\":\"arn:aws:iam::111122223333:user/awsbuilder\",\"accountId\":\"111122223333\",\"accessKeyId\":\"AKIA3RJHAC5I5NAWYHSH\",\"userName\":\"awsbuilder\"},\"eventTime\":\"2026-11-05T14:17:20Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"AuthorizeSecurityGroupIngress\",\"awsRegion\":\"ap-south-2\",\"sourceIPAddress\":\"117.251.253.36\",\"userAgent\":\"aws-cli/2.35.21 md/awscrt#0.35.0 ua/2.1 os/linux#6.6.87.2-microsoft-standard-WSL2 md/arch#x86_64 lang/python#3.14.6 md/pyimpl#CPython m/Z,E,n,b cfg/retry-mode#standard md/installer#exe sid/045d0390a3ef md/distrib#ubuntu.24 md/prompt#off md/command#ec2.authorize-security-group-ingress\",\"requestParameters\":{\"groupId\":\"sg-0d9d435fed4ef3742\",\"ipPermissions\":{\"items\":[{\"ipProtocol\":\"tcp\",\"fromPort\":22,\"toPort\":22,\"groups\":{},\"ipRanges\":{\"items\":[{\"cidrIp\":\"0.0.0.0/0\"}]},\"ipv6Ranges\":{},\"prefixListIds\":{}}]}},\"responseElements\":{\"requestId\":\"27ecc1cc-6c86-4f94-a8f7-364086342b0b\",\"_return\":true,\"securityGroupRuleSet\":{\"items\":[{\"groupOwnerId\":\"111122223333\",\"groupId\":\"sg-0d9d435fed4ef3742\",\"securityGroupRuleId\":\"sgr-0308c579c693b232a\",\"isEgress\":false,\"ipProtocol\":\"tcp\",\"fromPort\":22,\"toPort\":22,\"cidrIpv4\":\"0.0.0.0/0\",\"securityGroupRuleArn\":\"arn:aws:ec2:ap-south-2:111122223333:security-group-rule/sgr-0308c579c693b232a\"}]}},\"requestID\":\"27ecc1cc-6c86-4f94-a8f7-364086342b0b\",\"eventID\":\"05103880-bdab-4a85-95b9-1dfe7ef88f37\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"111122223333\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"ec2.ap-south-2.amazonaws.com\"}}"
+        },
+        {
+            "EventId": "110cf745-a310-4dca-8ca6-c571f49b9190",
+            "EventName": "AuthorizeSecurityGroupIngress",
+            "ReadOnly": "false",
+            "AccessKeyId": "AKIA3RJHAC5I5NAWYHSH",
+            "EventTime": "2026-11-05T14:07:19+00:00",
+            "EventSource": "ec2.amazonaws.com",
+            "Username": "awsbuilder",
+            "Resources": [
+                {
+                    "ResourceType": "AWS::EC2::SecurityGroup",
+                    "ResourceName": "sg-033878b1b31307252"
+                }
+            ],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA3RJHAC5I3HJQVV3R6\",\"arn\":\"arn:aws:iam::111122223333:user/awsbuilder\",\"accountId\":\"111122223333\",\"accessKeyId\":\"AKIA3RJHAC5I5NAWYHSH\",\"userName\":\"awsbuilder\"},\"eventTime\":\"2026-11-05T14:07:19Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"AuthorizeSecurityGroupIngress\",\"awsRegion\":\"ap-south-2\",\"sourceIPAddress\":\"117.251.253.36\",\"userAgent\":\"aws-cli/2.33.23 md/awscrt#0.31.1 ua/2.1 os/windows#11 md/arch#amd64 lang/python#3.13.11 md/pyimpl#CPython m/Z,n,E,b cfg/retry-mode#standard md/installer#exe md/prompt#off md/command#ec2.authorize-security-group-ingress\",\"requestParameters\":{\"groupId\":\"sg-033878b1b31307252\",\"ipPermissions\":{\"items\":[{\"ipProtocol\":\"tcp\",\"fromPort\":22,\"toPort\":22,\"groups\":{},\"ipRanges\":{\"items\":[{\"cidrIp\":\"0.0.0.0/0\"}]},\"ipv6Ranges\":{},\"prefixListIds\":{}}]}},\"responseElements\":{\"requestId\":\"99c784de-8b86-4b31-9f6c-b935f9e91520\",\"_return\":true,\"securityGroupRuleSet\":{\"items\":[{\"groupOwnerId\":\"111122223333\",\"groupId\":\"sg-033878b1b31307252\",\"securityGroupRuleId\":\"sgr-0924bd9ed39d11f4c\",\"isEgress\":false,\"ipProtocol\":\"tcp\",\"fromPort\":22,\"toPort\":22,\"cidrIpv4\":\"0.0.0.0/0\",\"securityGroupRuleArn\":\"arn:aws:ec2:ap-south-2:111122223333:security-group-rule/sgr-0924bd9ed39d11f4c\"}]}},\"requestID\":\"99c784de-8b86-4b31-9f6c-b935f9e91520\",\"eventID\":\"110cf745-a310-4dca-8ca6-c571f49b9190\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"111122223333\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"ec2.ap-south-2.amazonaws.com\"}}"
+        },
+        {
+            "EventId": "f9a1db33-8424-4bf1-bec4-8d1bccf29cd7",
+            "EventName": "AuthorizeSecurityGroupIngress",
+            "ReadOnly": "false",
+            "AccessKeyId": "AKIA3RJHAC5I5NAWYHSH",
+            "EventTime": "2026-11-05T14:07:16+00:00",
+            "EventSource": "ec2.amazonaws.com",
+            "Username": "awsbuilder",
+            "Resources": [
+                {
+                    "ResourceType": "AWS::EC2::SecurityGroup",
+                    "ResourceName": "sg-003a5ad5d6e780b32"
+                }
+            ],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA3RJHAC5I3HJQVV3R6\",\"arn\":\"arn:aws:iam::111122223333:user/awsbuilder\",\"accountId\":\"111122223333\",\"accessKeyId\":\"AKIA3RJHAC5I5NAWYHSH\",\"userName\":\"awsbuilder\"},\"eventTime\":\"2026-11-05T14:07:16Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"AuthorizeSecurityGroupIngress\",\"awsRegion\":\"ap-south-2\",\"sourceIPAddress\":\"117.251.253.36\",\"userAgent\":\"aws-cli/2.33.23 md/awscrt#0.31.1 ua/2.1 os/windows#11 md/arch#amd64 lang/python#3.13.11 md/pyimpl#CPython m/b,E,Z,n cfg/retry-mode#standard md/installer#exe md/prompt#off md/command#ec2.authorize-security-group-ingress\",\"requestParameters\":{\"groupId\":\"sg-003a5ad5d6e780b32\",\"ipPermissions\":{\"items\":[{\"ipProtocol\":\"tcp\",\"fromPort\":22,\"toPort\":22,\"groups\":{},\"ipRanges\":{\"items\":[{\"cidrIp\":\"0.0.0.0/0\"}]},\"ipv6Ranges\":{},\"prefixListIds\":{}}]}},\"responseElements\":{\"requestId\":\"5806e6fe-6220-4894-a04b-d69be385c815\",\"_return\":true,\"securityGroupRuleSet\":{\"items\":[{\"groupOwnerId\":\"111122223333\",\"groupId\":\"sg-003a5ad5d6e780b32\",\"securityGroupRuleId\":\"sgr-058b5580bfe9db70d\",\"isEgress\":false,\"ipProtocol\":\"tcp\",\"fromPort\":22,\"toPort\":22,\"cidrIpv4\":\"0.0.0.0/0\",\"securityGroupRuleArn\":\"arn:aws:ec2:ap-south-2:111122223333:security-group-rule/sgr-058b5580bfe9db70d\"}]}},\"requestID\":\"5806e6fe-6220-4894-a04b-d69be385c815\",\"eventID\":\"f9a1db33-8424-4bf1-bec4-8d1bccf29cd7\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"111122223333\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"ec2.ap-south-2.amazonaws.com\"}}"
+        },
+        {
+            "EventId": "5f600dbd-9ecb-4aac-b3f1-649b221aa7ec",
+            "EventName": "AuthorizeSecurityGroupIngress",
+            "ReadOnly": "false",
+            "AccessKeyId": "AKIA3RJHAC5I5NAWYHSH",
+            "EventTime": "2026-11-05T14:04:09+00:00",
+            "EventSource": "ec2.amazonaws.com",
+            "Username": "awsbuilder",
+            "Resources": [
+                {
+                    "ResourceType": "AWS::EC2::SecurityGroup",
+                    "ResourceName": "sg-02cac0cd61e0ba64c"
+                }
+            ],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA3RJHAC5I3HJQVV3R6\",\"arn\":\"arn:aws:iam::111122223333:user/awsbuilder\",\"accountId\":\"111122223333\",\"accessKeyId\":\"AKIA3RJHAC5I5NAWYHSH\",\"userName\":\"awsbuilder\"},\"eventTime\":\"2026-11-05T14:04:09Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"AuthorizeSecurityGroupIngress\",\"awsRegion\":\"ap-south-2\",\"sourceIPAddress\":\"117.251.253.36\",\"userAgent\":\"aws-cli/2.33.23 md/awscrt#0.31.1 ua/2.1 os/windows#11 md/arch#amd64 lang/python#3.13.11 md/pyimpl#CPython m/Z,b,E,n cfg/retry-mode#standard md/installer#exe md/prompt#off md/command#ec2.authorize-security-group-ingress\",\"requestParameters\":{\"groupId\":\"sg-02cac0cd61e0ba64c\",\"ipPermissions\":{\"items\":[{\"ipProtocol\":\"tcp\",\"fromPort\":22,\"toPort\":22,\"groups\":{},\"ipRanges\":{\"items\":[{\"cidrIp\":\"0.0.0.0/0\"}]},\"ipv6Ranges\":{},\"prefixListIds\":{}}]}},\"responseElements\":{\"requestId\":\"cf413faf-a49a-4c37-ba6e-61969ff7f0db\",\"_return\":true,\"securityGroupRuleSet\":{\"items\":[{\"groupOwnerId\":\"111122223333\",\"groupId\":\"sg-02cac0cd61e0ba64c\",\"securityGroupRuleId\":\"sgr-0b9d7c2c9b336f5f6\",\"isEgress\":false,\"ipProtocol\":\"tcp\",\"fromPort\":22,\"toPort\":22,\"cidrIpv4\":\"0.0.0.0/0\",\"securityGroupRuleArn\":\"arn:aws:ec2:ap-south-2:111122223333:security-group-rule/sgr-0b9d7c2c9b336f5f6\"}]}},\"requestID\":\"cf413faf-a49a-4c37-ba6e-61969ff7f0db\",\"eventID\":\"5f600dbd-9ecb-4aac-b3f1-649b221aa7ec\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"111122223333\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"ec2.ap-south-2.amazonaws.com\"}}"
+        },
+        {
+            "EventId": "51e5327b-8c5a-4159-bcf8-2988a5f3b3d0",
+            "EventName": "AuthorizeSecurityGroupIngress",
+            "ReadOnly": "false",
+            "AccessKeyId": "AKIA3RJHAC5I5NAWYHSH",
+            "EventTime": "2026-11-05T14:04:05+00:00",
+            "EventSource": "ec2.amazonaws.com",
+            "Username": "awsbuilder",
+            "Resources": [
+                {
+                    "ResourceType": "AWS::EC2::SecurityGroup",
+                    "ResourceName": "sg-0e2672b2a970ebde4"
+                }
+            ],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA3RJHAC5I3HJQVV3R6\",\"arn\":\"arn:aws:iam::111122223333:user/awsbuilder\",\"accountId\":\"111122223333\",\"accessKeyId\":\"AKIA3RJHAC5I5NAWYHSH\",\"userName\":\"awsbuilder\"},\"eventTime\":\"2026-11-05T14:04:05Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"AuthorizeSecurityGroupIngress\",\"awsRegion\":\"ap-south-2\",\"sourceIPAddress\":\"117.251.253.36\",\"userAgent\":\"aws-cli/2.33.23 md/awscrt#0.31.1 ua/2.1 os/windows#11 md/arch#amd64 lang/python#3.13.11 md/pyimpl#CPython m/Z,E,b,n cfg/retry-mode#standard md/installer#exe md/prompt#off md/command#ec2.authorize-security-group-ingress\",\"requestParameters\":{\"groupId\":\"sg-0e2672b2a970ebde4\",\"ipPermissions\":{\"items\":[{\"ipProtocol\":\"tcp\",\"fromPort\":22,\"toPort\":22,\"groups\":{},\"ipRanges\":{\"items\":[{\"cidrIp\":\"0.0.0.0/0\"}]},\"ipv6Ranges\":{},\"prefixListIds\":{}}]}},\"responseElements\":{\"requestId\":\"0e3aab1f-9b8b-4e11-9dab-8c8afedd2d7c\",\"_return\":true,\"securityGroupRuleSet\":{\"items\":[{\"groupOwnerId\":\"111122223333\",\"groupId\":\"sg-0e2672b2a970ebde4\",\"securityGroupRuleId\":\"sgr-0c113460978c7f178\",\"isEgress\":false,\"ipProtocol\":\"tcp\",\"fromPort\":22,\"toPort\":22,\"cidrIpv4\":\"0.0.0.0/0\",\"securityGroupRuleArn\":\"arn:aws:ec2:ap-south-2:111122223333:security-group-rule/sgr-0c113460978c7f178\"}]}},\"requestID\":\"0e3aab1f-9b8b-4e11-9dab-8c8afedd2d7c\",\"eventID\":\"51e5327b-8c5a-4159-bcf8-2988a5f3b3d0\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"111122223333\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"ec2.ap-south-2.amazonaws.com\"}}"
+        }
+    ]
+}

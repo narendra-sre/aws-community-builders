@@ -1,0 +1,144 @@
+<svg width="1672" height="941" viewBox="0 0 1672 941" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1b1140"/>
+      <stop offset="55%" stop-color="#101a3d"/>
+      <stop offset="100%" stop-color="#0b1230"/>
+    </linearGradient>
+    <radialGradient id="glowL" cx="0.05" cy="0.05" r="0.6">
+      <stop offset="0%" stop-color="#7a2fb8" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#7a2fb8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0.6" cy="1" r="0.6">
+      <stop offset="0%" stop-color="#3b2fa0" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#3b2fa0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" x2="1">
+      <stop offset="0%" stop-color="#7c4dff"/>
+      <stop offset="100%" stop-color="#b56cff"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#e8ecf8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1672" height="941" fill="url(#bg)"/>
+  <rect width="1672" height="941" fill="url(#glowL)"/>
+  <rect width="1672" height="941" fill="url(#glowB)"/>
+
+  <!-- Title -->
+  <text x="78" y="282" font-size="72" font-weight="700" fill="#ffffff">Preventing Public</text>
+  <text x="78" y="366" font-size="72" font-weight="700" fill="#ffffff">Exposure in</text>
+  <text x="78" y="450" font-size="72" font-weight="700" fill="#ffa238">AWS Before It Happens</text>
+  <text x="78" y="534" font-size="42" font-weight="500" fill="#dfe4f5">Event-Driven Guardrails with</text>
+  <text x="78" y="586" font-size="42" font-weight="500" fill="#dfe4f5">Terraform, Lambda and EventBridge</text>
+  <rect x="78" y="578" width="158" height="12" rx="6" fill="url(#accent)" opacity="0"/>
+  <rect x="78" y="612" width="158" height="8" rx="4" fill="url(#accent)"/>
+
+  <!-- Tags row 1 -->
+  <g font-size="26" font-weight="600" fill="#ffffff">
+    <rect x="68" y="736" width="100" height="50" rx="25" fill="none" stroke="#ff9a2e" stroke-width="3"/>
+    <text x="118" y="770" text-anchor="middle">AWS</text>
+    <rect x="182" y="736" width="150" height="50" rx="25" fill="none" stroke="#8a5cf6" stroke-width="3"/>
+    <text x="257" y="770" text-anchor="middle">Terraform</text>
+    <rect x="346" y="736" width="150" height="50" rx="25" fill="none" stroke="#e8407a" stroke-width="3"/>
+    <text x="421" y="770" text-anchor="middle">Lambda</text>
+    <rect x="512" y="736" width="256" height="50" rx="25" fill="none" stroke="#8a8fd6" stroke-width="3"/>
+    <text x="640" y="770" text-anchor="middle">EventBridge</text>
+  </g>
+  <!-- Tags row 2 -->
+  <g font-size="26" font-weight="600" fill="#ffffff">
+    <rect x="68" y="804" width="86" height="50" rx="25" fill="none" stroke="#8a8fd6" stroke-width="3"/>
+    <text x="111" y="838" text-anchor="middle">IaC</text>
+    <rect x="170" y="804" width="150" height="50" rx="25" fill="none" stroke="#8a8fd6" stroke-width="3"/>
+    <text x="245" y="838" text-anchor="middle">Security</text>
+    <rect x="336" y="804" width="182" height="50" rx="25" fill="none" stroke="#8a8fd6" stroke-width="3"/>
+    <text x="427" y="838" text-anchor="middle">Remediation</text>
+    <rect x="534" y="804" width="180" height="50" rx="25" fill="none" stroke="#8a8fd6" stroke-width="3"/>
+    <text x="624" y="838" text-anchor="middle">Compliance</text>
+  </g>
+
+  <!-- AWS cloud -->
+  <path d="M1200,330 C1120,330 1100,270 1120,240 C1130,200 1190,190 1215,200 C1230,130 1300,90 1360,100 C1420,110 1460,150 1460,200 C1510,200 1520,260 1505,285 C1495,315 1450,330 1420,328 Z"
+        fill="#0f1a3d" stroke="#a8c8ff" stroke-width="4"/>
+  <text x="1310" y="162" text-anchor="middle" font-size="58" font-weight="700" fill="#ffffff">aws</text>
+  <path d="M1255,180 Q1310,205 1368,180" fill="none" stroke="#ff9a2e" stroke-width="6" stroke-linecap="round"/>
+  <!-- service icons -->
+  <g fill="none" stroke="#dfe7ff" stroke-width="4">
+    <polygon points="1200,240 1230,256 1230,290 1200,274"/>
+    <polygon points="1200,240 1170,256 1170,290 1200,274"/>
+    <polygon points="1185,228 1215,240 1200,250 1170,240"/>
+    <path d="M1292,236 L1300,284 Q1316,292 1332,284 L1340,236"/>
+    <ellipse cx="1316" cy="236" rx="24" ry="8"/>
+    <rect x="1392" y="236" width="50" height="50" rx="6"/>
+    <rect x="1404" y="248" width="26" height="26"/>
+  </g>
+
+  <!-- Dashed connectors -->
+  <path d="M1250,330 L1250,350 Q1250,375 1220,375 L1040,375 Q1015,375 1015,400 L1015,420"
+        fill="none" stroke="#b9a6ff" stroke-width="3" stroke-dasharray="10,8"/>
+  <path d="M1295,330 L1295,350 Q1295,375 1325,375 L1500,375 Q1525,375 1525,400 L1525,420"
+        fill="none" stroke="#b9a6ff" stroke-width="3" stroke-dasharray="10,8"/>
+
+  <!-- Desired state box (Terraform) -->
+  <rect x="884" y="420" width="226" height="234" rx="18" fill="#17183f" stroke="#c9a6ff" stroke-width="4"/>
+  <polygon points="920,434 954,446 954,488 940,500 940,460 920,452" fill="#7b42bc"/>
+  <polygon points="956,446 990,434 990,452 976,460 976,500 956,488" fill="#8f5bd6"/>
+  <text x="916" y="540" font-size="26" font-weight="700" fill="#ffffff">Terraform</text>
+  <text x="916" y="572" font-size="22" fill="#e6e0ff">(Desired State)</text>
+  <rect x="916" y="596" width="96" height="6" rx="3" fill="#6c74c4"/>
+  <rect x="916" y="612" width="150" height="6" rx="3" fill="#6c74c4"/>
+  <rect x="916" y="628" width="120" height="6" rx="3" fill="#6c74c4"/>
+
+  <!-- Violation box -->
+  <rect x="1160" y="476" width="212" height="120" rx="16" fill="#3a1830" stroke="#ff5a6a" stroke-width="4"/>
+  <polygon points="1266,430 1222,508 1310,508" fill="#ff4a5c" stroke="#ffd0d4" stroke-width="3"/>
+  <text x="1266" y="492" text-anchor="middle" font-size="36" font-weight="700" fill="#ffffff">!</text>
+  <text x="1266" y="540" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff">Public Exposure</text>
+  <text x="1266" y="570" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff">Detected</text>
+
+  <!-- Actual state box (AWS) -->
+  <rect x="1416" y="420" width="226" height="234" rx="18" fill="#152447" stroke="#a8c8ff" stroke-width="4"/>
+  <g fill="none" stroke="#ffb13b" stroke-width="3">
+    <polygon points="1494,440 1520,452 1520,480 1494,468" fill="#ffb13b"/>
+    <polygon points="1520,452 1544,440 1544,468 1520,480" fill="#ffc86a"/>
+    <polygon points="1494,468 1520,480 1520,512 1494,500" fill="#e8962a"/>
+  </g>
+  <text x="1456" y="550" font-size="26" font-weight="700" fill="#ffffff">AWS</text>
+  <text x="1512" y="550" font-size="22" fill="#e6ecff">(Actual State)</text>
+  <rect x="1446" y="576" width="130" height="6" rx="3" fill="#6c84c4"/>
+  <rect x="1446" y="592" width="90" height="6" rx="3" fill="#6c84c4"/>
+  <rect x="1446" y="608" width="160" height="6" rx="3" fill="#6c84c4"/>
+  <rect x="1446" y="624" width="100" height="6" rx="3" fill="#6c84c4"/>
+
+  <!-- Arrows top row -->
+  <line x1="1112" y1="536" x2="1156" y2="536" stroke="#e8ecf8" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="1376" y1="536" x2="1412" y2="536" stroke="#e8ecf8" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Down connector to CloudTrail -->
+  <path d="M1266,596 L1266,680 Q1266,690 1256,690 L1060,690 Q1050,690 1050,700 L1050,718"
+        fill="none" stroke="#e8ecf8" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- CloudTrail box -->
+  <rect x="894" y="726" width="326" height="142" rx="18" fill="#3a1433" stroke="#f0609a" stroke-width="4"/>
+  <rect x="914" y="750" width="100" height="98" rx="10" fill="#e8407a"/>
+  <path d="M945,800 Q944,780 962,780 Q968,768 982,772 Q996,772 1000,786 Q1014,786 1014,800 Q1014,812 1000,812 L952,812 Q944,812 945,800 Z" fill="none" stroke="#ffffff" stroke-width="4"/>
+  <text x="1034" y="790" font-size="26" font-weight="700" fill="#ffffff">CloudTrail</text>
+  <text x="1034" y="824" font-size="22" fill="#f6dbe8">(Detect Changes)</text>
+
+  <!-- Arrow to remediation -->
+  <line x1="1222" y1="798" x2="1276" y2="798" stroke="#e8ecf8" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Remediate box -->
+  <rect x="1284" y="726" width="352" height="142" rx="18" fill="#0d3a3c" stroke="#4fe0c0" stroke-width="4"/>
+  <g fill="none" stroke="#4fe0c0" stroke-width="6" stroke-linecap="round">
+    <path d="M1356,780 A36,36 0 0 1 1420,760"/>
+    <path d="M1420,760 L1412,748 M1420,760 L1432,762"/>
+    <path d="M1356,818 A36,36 0 0 0 1420,838"/>
+    <path d="M1420,838 L1428,850 M1420,838 L1408,836"/>
+  </g>
+  <text x="1456" y="772" font-size="26" font-weight="700" fill="#ffffff">Remediate with</text>
+  <text x="1456" y="806" font-size="26" font-weight="700" fill="#ffffff">Terraform</text>
+  <text x="1456" y="840" font-size="22" fill="#d2f5ee">(Restore Desired State)</text>
+</svg>
