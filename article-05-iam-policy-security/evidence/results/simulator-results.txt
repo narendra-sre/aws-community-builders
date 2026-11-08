@@ -1,0 +1,27 @@
+
+### s3:PutObject on arn:aws:s3:::article05-demo-bucket/telemetry/sample.json
+--------------------------------------------------------------
+|                    SimulateCustomPolicy                    |
++------------------------------------------------------------+
+|  s3:PutObject                                              |
+|  arn:aws:s3:::article05-demo-bucket/telemetry/sample.json  |
+|  allowed                                                   |
++------------------------------------------------------------+
+
+### s3:DeleteBucket on arn:aws:s3:::article05-demo-bucket
+----------------------------------------
+|         SimulateCustomPolicy         |
++--------------------------------------+
+|  s3:DeleteBucket                     |
+|  arn:aws:s3:::article05-demo-bucket  |
+|  explicitDeny                        |
++--------------------------------------+
+
+### s3:DeleteObject on arn:aws:s3:::article05-demo-bucket/telemetry/sample.json
+--------------------------------------------------------------
+|                    SimulateCustomPolicy                    |
++------------------------------------------------------------+
+|  s3:DeleteObject                                           |
+|  arn:aws:s3:::article05-demo-bucket/telemetry/sample.json  |
+|  implicitDeny                                              |
++------------------------------------------------------------+

@@ -11,5 +11,3 @@
 *.tfstate.*
 
 # Local generated evidence; explicitly review before force-adding
-/evidence/results/*
-!/evidence/results/.gitkeep

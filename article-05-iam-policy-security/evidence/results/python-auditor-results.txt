@@ -1,0 +1,9 @@
+
+Policy: /mnt/c/Nani/AWS COMMUNITY BUILDER/aws-community-builders/article-05-iam-policy-security/policies/overprivileged-policy.json
+[CRITICAL] AllowAllActionsOnAllResources: Allow with Action='*' and Resource='*'.
+[HIGH] SensitiveIAMActionsOnAllResources: Sensitive action iam:PassRole is granted on Resource='*'.
+[HIGH] SensitiveIAMActionsOnAllResources: Sensitive action iam:CreatePolicyVersion is granted on Resource='*'.
+[HIGH] SensitiveIAMActionsOnAllResources: Sensitive action iam:SetDefaultPolicyVersion is granted on Resource='*'.
+
+Policy: /mnt/c/Nani/AWS COMMUNITY BUILDER/aws-community-builders/article-05-iam-policy-security/policies/least-privilege-policy.json
+PASS: no patterns from this checker's limited rule set were found.
