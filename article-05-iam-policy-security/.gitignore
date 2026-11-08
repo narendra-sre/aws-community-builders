@@ -1,0 +1,15 @@
+# Local AWS credentials/configuration
+.aws/
+**/credentials
+**/config
+*.pem
+*.key
+
+# Terraform is not part of this review-only project; ignore accidental local state
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Local generated evidence; explicitly review before force-adding
+/evidence/results/*
+!/evidence/results/.gitkeep
