@@ -1,0 +1,16 @@
+=== Terraform version ===
+Terraform v1.14.8
+on linux_amd64
+
+Your version of Terraform is out of date! The latest version
+is 1.17.1. You can update by downloading from https://developer.hashicorp.com/terraform/install
+
+=== Terraform formatting check ===
+
+=== Terraform validation ===
+Success! The configuration is valid.
+
+=== Terraform outputs ===
+bucket_arn = "arn:aws:s3:::acb-terraform-demo-0ed6e2c0"
+bucket_name = "acb-terraform-demo-0ed6e2c0"
+bucket_region = "ap-south-2"

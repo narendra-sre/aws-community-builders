@@ -1,0 +1,32 @@
+# Terraform working directory
+**/.terraform/*
+
+# Commit .terraform.lock.hcl to pin provider selections.
+# Terraform state and backups
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Terraform plans and crash logs
+*.tfplan
+crash.log
+crash.*.log
+
+# Local variable files (keep examples in Git)
+terraform/terraform.tfvars
+*.auto.tfvars
+
+# Credentials and local environment files
+.env
+.env.*
+*.pem
+*.key
+.aws/
+
+# Editor / OS noise
+.DS_Store
+*.swp
+*.swo
+
+# Evidence results are intentionally NOT ignored.
+# Review and sanitize them before committing.

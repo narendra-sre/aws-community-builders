@@ -1,0 +1,44 @@
+Verifying bucket: acb-terraform-demo-0ed6e2c0
+Region: ap-south-2
+{
+    "BucketArn": "arn:aws:s3:::acb-terraform-demo-0ed6e2c0",
+    "BucketRegion": "ap-south-2",
+    "AccessPointAlias": false
+}
+
+Public access block:
+-----------------------------------
+|      GetPublicAccessBlock       |
++-------------------------+-------+
+|  BlockPublicAcls        |  True |
+|  BlockPublicPolicy      |  True |
+|  IgnorePublicAcls       |  True |
+|  RestrictPublicBuckets  |  True |
++-------------------------+-------+
+
+Versioning:
+{
+    "Status": "Enabled"
+}
+
+Default encryption:
+---------------------
+|GetBucketEncryption|
++-------------------+
+|   SSEAlgorithm    |
++-------------------+
+|  AES256           |
++-------------------+
+
+Ownership controls:
+{
+    "OwnershipControls": {
+        "Rules": [
+            {
+                "ObjectOwnership": "BucketOwnerEnforced"
+            }
+        ]
+    }
+}
+
+Verification commands completed. Review each returned setting.
