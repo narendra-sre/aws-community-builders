@@ -28,8 +28,8 @@ jobs:
         with:
           terraform_version: "1.9.8"
       - name: Terraform format
-        run: terraform -chdir=terraform fmt -check -recursive
+        run: terraform -chdir=article-06-terraform-infrastructure-deployment/terraform fmt -check -recursive
       - name: Terraform initialize (no backend)
-        run: terraform -chdir=terraform init -backend=false -input=false
+        run: terraform -chdir=article-06-terraform-infrastructure-deployment/terraform init -backend=false -input=false
       - name: Terraform validate
-        run: terraform -chdir=terraform validate
+        run: terraform -chdir=article-06-terraform-infrastructure-deployment/terraform validate
