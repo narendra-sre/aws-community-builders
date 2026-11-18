@@ -64,7 +64,7 @@ terraform -chdir=terraform plan
 ./scripts/deploy.sh
 ```
 ### Terraform Apply
-![Project Screenshot](images/terraform-apply.png)
+![Project Screenshot](evidence/screenshots/terraform-apply.png)
 
 ## Subscribe to notifications
 
@@ -74,7 +74,7 @@ terraform -chdir=terraform plan
 
 Confirm the subscription using the message sent by Amazon SNS. The endpoint must be confirmed before it can receive notifications.
 
-![Project Screenshot](images/sns-email.png)
+![Project Screenshot](evidence/screenshots/sns-email.png)
 
 ## Verify and test
 
@@ -85,7 +85,7 @@ Confirm the subscription using the message sent by Amazon SNS. The endpoint must
 
 The test script temporarily authorizes TCP port 22 from `203.0.113.0/24` on the dedicated test security group, then removes the rule. This is a documentation-only CIDR range used to generate a controlled API event. Do not use a production security group or replace it with `0.0.0.0/0`.
 
-![Project Screenshot](images/test.png)
+![Project Screenshot](evidence/screenshots/test.png)
 
 ## Cleanup
 
@@ -95,7 +95,7 @@ The test script temporarily authorizes TCP port 22 from `203.0.113.0/24` on the 
 
 Review the Terraform destroy plan and confirm that only this demonstration's resources will be removed.
 
-![Project Screenshot](images/destroy.png)
+![Project Screenshot](evidence/screenshots/destroy.png)
 
 ## Limitations
 
