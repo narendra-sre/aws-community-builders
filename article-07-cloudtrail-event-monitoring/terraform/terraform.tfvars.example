@@ -1,0 +1,4 @@
+aws_region   = "ap-south-2"
+project_name = "cloudtrail-sg-change-alert"
+environment  = "demo"
+name_prefix  = "sg-change-alert"

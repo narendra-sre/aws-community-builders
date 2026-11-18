@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+TF_DIR="$ROOT_DIR/terraform"
+RULE="$(terraform -chdir="$TF_DIR" output -raw eventbridge_rule_name)"
+TOPIC="$(terraform -chdir="$TF_DIR" output -raw sns_topic_arn)"
+SG="$(terraform -chdir="$TF_DIR" output -raw test_security_group_id)"
+REGION="$(terraform -chdir="$TF_DIR" output -raw aws_region)"
+echo "== EventBridge rule =="
+aws events describe-rule --name "$RULE" --region "$REGION"
+echo "== EventBridge targets =="
+aws events list-targets-by-rule --rule "$RULE" --region "$REGION"
+echo "== SNS topic =="
+aws sns get-topic-attributes --topic-arn "$TOPIC" --region "$REGION"
+echo "== Test security group =="
+aws ec2 describe-security-groups --group-ids "$SG" --region "$REGION"
+echo "Verification API calls completed. Confirm the SNS subscription separately."
