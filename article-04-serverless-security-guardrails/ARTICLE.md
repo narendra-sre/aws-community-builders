@@ -30,7 +30,6 @@ The flow has six steps:
 5. The outcome is written to the findings table, and an alert is published to SNS and delivered by email.
 6. Any event that fails every retry is parked in an SQS dead-letter queue for inspection.
 
-[Insert `images/guardrail-architecture.svg` here]
 
 The services were chosen for cost as much as capability. I avoided AWS Config and Security Hub, which are powerful but billed per rule evaluation or finding, and I avoided customer-managed KMS keys, which carry a monthly charge. Lambda, EventBridge rules on the default bus, DynamoDB on-demand, SNS email, SQS, and CloudWatch Logs with 14-day retention all fit within the Free Tier for a workload of this size.
 
