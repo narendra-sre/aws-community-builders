@@ -34,7 +34,6 @@ Amazon SNS topic
 Confirmed email subscription
 ```
 
-[IMAGE PLACEHOLDER — Insert `images/architecture.svg`.]
 
 EventBridge receives AWS service events delivered through CloudTrail. The rule filters selected EC2 security group rule API calls and forwards matching events to SNS. The email recipient must confirm the SNS subscription before receiving notifications.
 
@@ -79,7 +78,6 @@ article-07-cloudtrail-event-monitoring/
 
 The EventBridge rule filters CloudTrail API events from EC2. It includes `AuthorizeSecurityGroupIngress`, `RevokeSecurityGroupIngress`, `AuthorizeSecurityGroupEgress`, and `RevokeSecurityGroupEgress`.
 
-[IMAGE PLACEHOLDER — Insert a screenshot of the EventBridge rule and event pattern after deployment.]
 
 The rule matches selected API activity, not every possible network exposure condition. It is a focused detection example, not a complete security posture management solution.
 
@@ -101,8 +99,6 @@ Review the plan and ensure it contains only expected resources. Then:
 ./scripts/deploy.sh
 ```
 
-[IMAGE PLACEHOLDER — Insert a screenshot of the reviewed Terraform plan.]
-[IMAGE PLACEHOLDER — Insert a screenshot of successful Terraform apply.]
 
 ## 6. Subscribe an email endpoint
 
@@ -112,7 +108,6 @@ Review the plan and ensure it contains only expected resources. Then:
 
 Open the AWS subscription confirmation email and confirm the subscription before testing.
 
-[IMAGE PLACEHOLDER — Insert a screenshot showing the SNS subscription confirmed. Hide the email address.]
 
 ## 7. Verify the deployment
 
@@ -122,7 +117,6 @@ Open the AWS subscription confirmation email and confirm the subscription before
 
 The script checks the EventBridge rule, target, SNS topic, and test security group. These checks confirm configuration and wiring; they do not prove that an email was delivered.
 
-[IMAGE PLACEHOLDER — Insert a screenshot of verification output.]
 
 ## 8. Generate a controlled test event
 
@@ -134,8 +128,6 @@ The script adds a temporary TCP/22 ingress rule using `203.0.113.0/24`, a docume
 
 Do not use a production security group for this test. Do not replace the documentation-only CIDR with `0.0.0.0/0`.
 
-[IMAGE PLACEHOLDER — Insert a screenshot of the controlled test command output.]
-[IMAGE PLACEHOLDER — Insert a screenshot of the received SNS email alert, with personal details redacted.]
 
 ## 9. Operational considerations and limitations
 
@@ -156,7 +148,6 @@ After collecting evidence:
 
 Review the destroy plan and confirm only the resources created for this demonstration will be removed.
 
-[IMAGE PLACEHOLDER — Insert a screenshot of successful cleanup.]
 
 ## Conclusion
 
