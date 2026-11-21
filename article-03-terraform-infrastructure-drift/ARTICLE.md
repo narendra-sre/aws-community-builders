@@ -68,7 +68,6 @@ The implementation is performed in the AWS Asia Pacific (Hyderabad) Region (`ap-
 
 Terraform provisions an EC2 instance. A manual modification changes its Environment tag. Terraform detects the difference, CloudTrail provides an audit record of the modification, and Terraform restores the declared configuration.
 
-[Insert terraform-drift-architecture.svg here]
 
 ## 3. Provisioning Infrastructure Using Terraform
 
@@ -194,7 +193,6 @@ No changes. Your infrastructure matches the configuration.
 
 This established our baseline: the actual AWS infrastructure matched the declared Terraform configuration.
 
-[Insert initial EC2 tags screenshot here]
 
 ## 5. Introducing Infrastructure Drift
 
@@ -242,7 +240,6 @@ The Terraform configuration still declared `Environment = development`.
 
 We had successfully introduced infrastructure drift.
 
-[Insert manual EC2 tag modification screenshot here]
 
 ## 6. Detecting Infrastructure Drift Using Terraform
 
@@ -281,7 +278,6 @@ terraform show -json drift-plan |
 
 This demonstrated that Terraform had detected the difference between the actual AWS resource and the desired configuration.
 
-[Insert Terraform drift detection screenshot here]
 
 ## 7. Investigating Manual Changes Using AWS CloudTrail
 
@@ -315,7 +311,6 @@ The CloudTrail record provided an audit trail for the manual infrastructure modi
 
 By comparing the initial EC2 tag evidence with the CloudTrail event and the drifted configuration, I could establish what changed and investigate the corresponding API activity.
 
-[Insert CloudTrail event screenshot here]
 
 ## 8. Remediating Infrastructure Drift
 
@@ -369,7 +364,6 @@ No changes. Your infrastructure matches the configuration.
 
 This confirmed that the observed AWS configuration matched the Terraform configuration after remediation.
 
-[Insert final Terraform no-drift screenshot here]
 
 ## 10. Key Learnings
 
