@@ -1,0 +1,3 @@
+aws_region   = "ap-south-2"
+vpc_id       = "vpc-0123456789abcdef0"
+project_name = "article08-flowlogs"

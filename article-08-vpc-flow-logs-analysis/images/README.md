@@ -1,0 +1,1 @@
+Place the article cover image and architecture illustration here.

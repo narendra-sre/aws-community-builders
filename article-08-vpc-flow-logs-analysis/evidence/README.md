@@ -1,0 +1,1 @@
+Capture real evidence in screenshots/: Terraform plan/apply, outputs/state, S3 encryption and public-access block, Flow Log ACTIVE status, S3 delivered objects, Athena table creation, query results, and cleanup. Redact account IDs and sensitive IP addresses. Never fabricate results.
