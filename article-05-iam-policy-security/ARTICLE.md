@@ -32,7 +32,6 @@ The challenge is to review policies before deployment without attaching an unsaf
 
 ## 2. Architecture
 
-[IMAGE PLACEHOLDER — Insert the project architecture diagram here. Suggested file: `images/architecture.svg`.]
 
 The workflow has three stages:
 
@@ -150,9 +149,6 @@ These are expected outcomes based on the sample policy and simulator inputs. Use
 
 The simulator does not send a real S3 request and does not prove that a real request would succeed. Actual authorization can depend on additional identity, resource, permissions-boundary, session, Organizations, and request-context controls.
 
-[IMAGE PLACEHOLDER — Insert a terminal screenshot showing the actual simulator `allowed` result for `s3:PutObject`.]
-
-[IMAGE PLACEHOLDER — Insert a terminal screenshot showing the actual `explicitDeny` and `implicitDeny` results.]
 
 ## 7. Evidence collection
 
@@ -174,11 +170,6 @@ Suggested screenshots:
 - Simulator output for the three action/resource cases.
 - The generated evidence file list.
 
-[IMAGE PLACEHOLDER — Insert a screenshot of the local Python auditor output.]
-
-[IMAGE PLACEHOLDER — Insert a screenshot of the Access Analyzer findings.]
-
-[IMAGE PLACEHOLDER — Insert a screenshot of the generated `evidence/results/` files.]
 
 Before publishing, review the evidence and remove sensitive account information or unrelated output. Do not commit credentials, tokens, private keys, or AWS configuration files.
 
