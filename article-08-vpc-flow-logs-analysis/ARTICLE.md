@@ -28,7 +28,6 @@ The goal is not to capture packet contents. Flow Logs provide metadata about IP 
                   SQL analysis
 ```
 
-[IMAGE PLACEHOLDER — Insert the Article 08 architecture cover image.]
 
 The workflow is:
 
@@ -169,9 +168,6 @@ Check that the plan refers to the intended VPC and only contains the resources e
 
 The helper displays the Terraform plan and requires an explicit confirmation before applying it. Review the plan before approving it.
 
-[IMAGE PLACEHOLDER — Insert a screenshot of the Terraform plan showing the resources to be created.]
-
-[IMAGE PLACEHOLDER — Insert a screenshot of the successful Terraform apply and outputs. Redact account-specific information if necessary.]
 
 The deployment outputs include the Flow Logs bucket name, Flow Log ID, Athena workgroup name, and selected VPC ID.
 
@@ -196,7 +192,6 @@ Confirm that:
 
 The `ACTIVE` state confirms that the Flow Log is configured. It does not mean that log files will appear immediately. Flow Logs are not a traffic generator; records are produced only when there is traffic on monitored network interfaces.
 
-[IMAGE PLACEHOLDER — Insert a screenshot of the Flow Log details showing its status, traffic type, and S3 destination.]
 
 ## 9. Generate test network traffic
 
@@ -221,7 +216,6 @@ The outcome of a connection attempt depends on the destination, routing, network
 
 Allow time for Flow Logs to be delivered. Delivery is not instantaneous, and the service publishes log files on a best-effort basis.
 
-[IMAGE PLACEHOLDER — Insert a screenshot of the test workload or traffic-generation commands. Do not expose public IPs or other sensitive details.]
 
 ## 10. Confirm that log files reached Amazon S3
 
@@ -246,7 +240,6 @@ Replace the bucket and object path with an actual object from your S3 listing.
 
 At this point, the important validation is that actual `.log.gz` objects exist in the expected Flow Logs prefix. An empty bucket immediately after enabling Flow Logs is not sufficient evidence of a failure; first check that the VPC has active network interfaces and that traffic has occurred, then allow time for delivery.
 
-[IMAGE PLACEHOLDER — Insert an S3 console screenshot showing actual `.log.gz` Flow Logs objects. Hide account IDs if desired.]
 
 ## 11. Create the Athena table
 
@@ -300,7 +293,6 @@ Inspect the columns:
 DESCRIBE vpc_flow_logs;
 ```
 
-[IMAGE PLACEHOLDER — Insert a screenshot of the successful table-creation query and the table schema.]
 
 ## 12. Analyze rejected traffic
 
@@ -336,7 +328,6 @@ When reviewing the results, look for:
 
 A query returning no rows is a valid observation, not a result to invent or hide. It may mean that no rejected traffic was captured in the selected time range, or that the test did not produce the expected rejected flow. Confirm that log files exist, check the capture window, and generate a controlled test if needed.
 
-[IMAGE PLACEHOLDER — Insert the actual rejected-traffic query and results. If the query returns no rows, show the real empty result and explain the test conditions.]
 
 ## 13. Identify top source addresses
 
@@ -359,7 +350,6 @@ This gives a basic view of which source addresses account for the largest amount
 
 Keep in mind that Flow Logs contain records for network flows, not application-level requests. A high byte count does not automatically indicate malicious activity. Correlate unusual results with workload ownership, expected traffic patterns, security controls, and other monitoring data.
 
-[IMAGE PLACEHOLDER — Insert the actual top-source-address query and result table.]
 
 ## 14. Analyze destination ports
 
@@ -388,7 +378,6 @@ Use the results to investigate:
 
 Port numbers alone do not identify the application with certainty. Interpret them in the context of the workload and the rest of the network architecture.
 
-[IMAGE PLACEHOLDER — Insert the actual destination-port query and results.]
 
 ## 15. Operational considerations and limitations
 
@@ -416,7 +405,6 @@ Then review the Terraform destroy plan and remove the resources created by this 
 
 The project's S3 bucket is configured for destructive cleanup. Its contents, including delivered Flow Logs and Athena query results stored there, may be deleted when the bucket is destroyed. Download or preserve the evidence you need before cleanup.
 
-[IMAGE PLACEHOLDER — Insert a screenshot of the successful Terraform cleanup.]
 
 ## Conclusion
 
