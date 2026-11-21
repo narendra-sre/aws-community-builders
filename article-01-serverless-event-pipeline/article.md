@@ -14,8 +14,6 @@ A tightly coupled implementation can make the upload path slower and harder to o
 
 In this article, we'll explore an event-driven pattern built with Amazon Simple Storage Service (Amazon S3), Amazon Simple Queue Service (Amazon SQS), and AWS Lambda. We'll also cover a dead-letter queue, IAM permissions, encryption, monitoring, retries, and idempotency.
 
-📷 **[INSERT IMAGE 1 HERE — Overall architecture diagram: `images/01-architecture.png`]**  
-*Figure 1. A file-created event is queued, processed asynchronously by Lambda, and observed through CloudWatch. Repeatedly failing messages can be moved to a dead-letter queue.*
 
 ## 1. The problem we're solving
 
@@ -55,8 +53,6 @@ A queue does not make processing exactly-once. Standard SQS queues provide at-le
 
 ## 3. End-to-end event flow
 
-📷 **[INSERT IMAGE 2 HERE — Event-processing sequence: `images/02-event-flow.png`]**  
-*Figure 2. Upload, event notification, queueing, Lambda polling, processing, and logging in sequence.*
 
 Let's walk through the request lifecycle:
 
@@ -77,8 +73,6 @@ S3 event notifications normally contain bucket and object-key details. Object ke
 
 Failures are part of normal distributed-system operation. A downstream dependency may time out, a file may be malformed, or the function may encounter a bug.
 
-📷 **[INSERT IMAGE 3 HERE — Retry and dead-letter path: `images/03-retry-dlq.png`]**  
-*Figure 3. Failed messages can be retried by SQS/Lambda integration and moved to a dead-letter queue after the configured receive limit.*
 
 A dead-letter queue helps separate messages that need attention from the main processing backlog. The queue's redrive policy defines the maximum receive count before a message is moved to the DLQ.
 
@@ -111,9 +105,6 @@ An idempotent operation produces the same effective result when repeated with th
 The simple example in the repository demonstrates event handling and partial batch failure structure. It is not a complete business-level deduplication system.
 
 ## 6. Security design: least privilege and protected storage
-
-📷 **[INSERT IMAGE 4 HERE — Security boundaries: `images/04-security-boundaries.png`]**  
-*Figure 4. Each service has a specific permission boundary: S3 may publish to the queue, Lambda may poll the queue and write logs, and bucket access remains private by default.*
 
 Security should be designed into the workflow rather than added after it works.
 
