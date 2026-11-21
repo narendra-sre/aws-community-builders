@@ -30,7 +30,6 @@ Terraform creates an S3 bucket with:
 
 The S3 configuration is encapsulated in a reusable Terraform module.
 
-[IMAGE PLACEHOLDER — Insert the architecture diagram from `images/architecture.svg`.]
 
 ## 2. Architecture and deployment flow
 
@@ -58,7 +57,6 @@ Terraform state records managed resources.
 GitHub Actions validates configuration; it does not deploy.
 ```
 
-[IMAGE PLACEHOLDER — Insert a screenshot or diagram illustrating the Terraform deployment flow.]
 
 ## 3. Repository structure
 
@@ -110,7 +108,6 @@ The `.terraform.lock.hcl` file is generated during initialization and should be 
 
 The root configuration calls `modules/secure_s3_bucket`. The module separates the S3 resource implementation from environment-specific inputs. It accepts a bucket name and tags, then configures versioning, encryption, public-access blocking, and object ownership.
 
-[IMAGE PLACEHOLDER — Insert a screenshot showing `modules/secure_s3_bucket/` and the module call in the root configuration.]
 
 ## 5. Variables and outputs
 
@@ -118,7 +115,6 @@ Variables allow the same configuration to be reused without editing resource def
 
 A random suffix is added to the bucket name to reduce the chance of a global S3 naming collision. Terraform records the generated value in state. Outputs expose the bucket name, ARN, and region for operators and verification scripts. Do not use outputs to expose secrets.
 
-[IMAGE PLACEHOLDER — Insert a screenshot of the Terraform variables and outputs, if useful.]
 
 ## 6. Terraform state management
 
@@ -131,7 +127,6 @@ This standalone demonstration uses the default local state file. State can conta
 - Protect and back up state.
 - For team or production use, prefer a protected remote backend with access controls, encryption, versioning, and locking.
 
-[IMAGE PLACEHOLDER — Insert a screenshot of `terraform state list` showing the managed resources. Redact account-specific details.]
 
 This repository documents local state; it does not automatically create a remote backend. A remote backend requires a separately bootstrapped storage location and deliberate access-control design.
 
@@ -155,9 +150,6 @@ Review the plan before applying. It should contain only the intended S3 bucket a
 
 Terraform asks for confirmation. Read the proposed changes before approving.
 
-[IMAGE PLACEHOLDER — Insert a screenshot of the reviewed Terraform plan showing the planned resource creation.]
-
-[IMAGE PLACEHOLDER — Insert a screenshot of the successful Terraform apply summary.]
 
 ## 8. Verify the deployed configuration
 
@@ -167,11 +159,9 @@ Terraform asks for confirmation. Read the proposed changes before approving.
 
 The script uses Terraform outputs and AWS CLI read operations to check the bucket's public-access block, versioning, encryption, and ownership controls.
 
-[IMAGE PLACEHOLDER — Insert a screenshot of the actual AWS CLI verification output.]
 
 After deployment, a second Terraform plan should report no changes when the live infrastructure matches the configuration.
 
-[IMAGE PLACEHOLDER — Insert a screenshot showing `No changes. Your infrastructure matches the configuration.`]
 
 Report only settings that the verification commands actually confirm. A successful apply is not a substitute for checking the resulting configuration.
 
@@ -181,7 +171,6 @@ The included GitHub Actions workflow runs Terraform formatting, initialization, 
 
 A production deployment workflow should use short-lived credentials through GitHub OIDC, a narrowly scoped IAM role, protected environments, and explicit approval gates rather than long-lived access keys.
 
-[IMAGE PLACEHOLDER — Insert a screenshot of a successful GitHub Actions workflow run, after the workflow has run.]
 
 ## 10. Cost, safety, and cleanup
 
@@ -195,7 +184,6 @@ After collecting and reviewing evidence, destroy the demonstration resources if 
 
 The bucket uses `force_destroy = false`. If it contains objects or versions, Terraform will not silently empty it. Inspect the bucket and remove only demonstration data you intentionally created, then run destroy again. Do not enable force deletion simply to make cleanup easier.
 
-[IMAGE PLACEHOLDER — Insert a screenshot of the destroy confirmation and successful completion after cleanup.]
 
 ## 11. Limitations and next steps
 
